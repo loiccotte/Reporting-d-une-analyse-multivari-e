@@ -1,0 +1,549 @@
+"REG","Région","DEP","CODARR","CODCAN","CODCOM","COM","Commune","PMUN","PCAP","PTOT"
+84,"Auvergne-Rhône-Alpes","01",1,1,4,"01004","Ambérieu-en-Bugey",14854,386,15240
+84,"Auvergne-Rhône-Alpes","01",4,3,33,"01033","Valserhône",16295,316,16611
+84,"Auvergne-Rhône-Alpes","01",3,9,143,"01143","Divonne-les-Bains",10137,216,10353
+84,"Auvergne-Rhône-Alpes","01",3,19,160,"01160","Ferney-Voltaire",10920,173,11093
+84,"Auvergne-Rhône-Alpes","01",3,9,173,"01173","Gex",13078,313,13391
+84,"Auvergne-Rhône-Alpes","01",2,13,249,"01249","Miribel",10225,150,10375
+84,"Auvergne-Rhône-Alpes","01",3,19,354,"01354","Saint-Genis-Pouilly",14558,206,14764
+32,"Hauts-de-France","02",1,2,168,"02168","Château-Thierry",15204,309,15513
+32,"Hauts-de-France","02",2,3,173,"02173","Chauny",11496,403,11899
+32,"Hauts-de-France","02",2,18,738,"02738","Tergnier",13431,215,13646
+32,"Hauts-de-France","02",4,21,810,"02810","Villers-Cotterêts",10454,415,10869
+84,"Auvergne-Rhône-Alpes","03",3,4,95,"03095","Cusset",12909,462,13371
+84,"Auvergne-Rhône-Alpes","03",2,98,190,"03190","Moulins",19343,526,19869
+84,"Auvergne-Rhône-Alpes","03",2,19,321,"03321","Yzeure",12598,524,13122
+93,"Provence-Alpes-Côte d'Azur","04",3,98,70,"04070","Digne-les-Bains",17192,932,18124
+93,"Provence-Alpes-Côte d'Azur","05",1,98,23,"05023","Briançon",10561,314,10875
+93,"Provence-Alpes-Côte d'Azur","06",2,4,12,"06012","Beausoleil",12674,122,12796
+93,"Provence-Alpes-Côte d'Azur","06",1,3,18,"06018","Biot",9880,309,10189
+93,"Provence-Alpes-Côte d'Azur","06",1,17,33,"06033","Carros",13277,142,13419
+93,"Provence-Alpes-Côte d'Azur","06",1,12,84,"06084","Mouans-Sartoux",10531,189,10720
+93,"Provence-Alpes-Côte d'Azur","06",2,14,104,"06104","Roquebrune-Cap-Martin",12371,164,12535
+93,"Provence-Alpes-Côte d'Azur","06",2,21,149,"06149","La Trinité",10276,68,10344
+93,"Provence-Alpes-Côte d'Azur","06",1,25,152,"06152","Valbonne",12754,410,13164
+93,"Provence-Alpes-Côte d'Azur","06",1,26,157,"06157","Vence",19415,263,19678
+93,"Provence-Alpes-Côte d'Azur","06",1,27,161,"06161","Villeneuve-Loubet",16779,216,16995
+84,"Auvergne-Rhône-Alpes","07",3,98,10,"07010","Annonay",16873,566,17439
+84,"Auvergne-Rhône-Alpes","07",1,99,19,"07019","Aubenas",12360,780,13140
+84,"Auvergne-Rhône-Alpes","07",3,7,102,"07102","Guilherand-Granges",11203,186,11389
+84,"Auvergne-Rhône-Alpes","07",3,14,324,"07324","Tournon-sur-Rhône",11191,578,11769
+44,"Grand Est","08",3,99,409,"08409","Sedan",16608,333,16941
+76,"Occitanie","09",2,99,225,"09225","Pamiers",16394,513,16907
+44,"Grand Est","10",3,14,81,"10081","La Chapelle-Saint-Luc",12299,75,12374
+44,"Grand Est","10",2,9,323,"10323","Romilly-sur-Seine",14766,315,15081
+44,"Grand Est","10",3,10,333,"10333","Saint-André-les-Vergers",12775,177,12952
+44,"Grand Est","10",3,13,362,"10362","Sainte-Savine",10515,340,10855
+76,"Occitanie","11",1,5,76,"11076","Castelnaudary",12448,526,12974
+76,"Occitanie","11",3,8,203,"11203","Lézignan-Corbières",10952,215,11167
+76,"Occitanie","11",2,9,206,"11206","Limoux",10302,448,10750
+76,"Occitanie","12",2,18,176,"12176","Onet-le-Château",11873,595,12468
+76,"Occitanie","12",3,22,300,"12300","Villefranche-de-Rouergue",11720,487,12207
+93,"Provence-Alpes-Côte d'Azur","13",3,3,7,"13007","Auriol",12839,151,12990
+93,"Provence-Alpes-Côte d'Azur","13",4,6,14,"13014","Berre-l'Étang",13912,71,13983
+93,"Provence-Alpes-Côte d'Azur","13",1,29,15,"13015","Bouc-Bel-Air",15248,253,15501
+93,"Provence-Alpes-Côte d'Azur","13",1,29,19,"13019","Cabriès",10070,329,10399
+93,"Provence-Alpes-Côte d'Azur","13",4,11,26,"13026","Châteauneuf-les-Martigues",17909,77,17986
+93,"Provence-Alpes-Côte d'Azur","13",2,7,27,"13027","Châteaurenard",16669,256,16925
+93,"Provence-Alpes-Côte d'Azur","13",4,10,39,"13039","Fos-sur-Mer",15469,189,15658
+93,"Provence-Alpes-Côte d'Azur","13",1,28,40,"13040","Fuveau",10115,200,10315
+93,"Provence-Alpes-Côte d'Azur","13",4,11,43,"13043","Gignac-la-Nerthe",10083,96,10179
+93,"Provence-Alpes-Côte d'Azur","13",1,25,50,"13050","Lambesc",9991,254,10245
+93,"Provence-Alpes-Côte d'Azur","13",1,25,69,"13069","Pélissanne",10554,243,10797
+93,"Provence-Alpes-Côte d'Azur","13",3,3,75,"13075","Plan-de-Cuques",11396,87,11483
+93,"Provence-Alpes-Côte d'Azur","13",4,24,77,"13077","Port-de-Bouc",16136,140,16276
+93,"Provence-Alpes-Côte d'Azur","13",4,6,81,"13081","Rognac",12175,112,12287
+93,"Provence-Alpes-Côte d'Azur","13",2,27,97,"13097","Saint-Martin-de-Crau",13729,298,14027
+93,"Provence-Alpes-Côte d'Azur","13",3,9,106,"13106","Septèmes-les-Vallons",11734,78,11812
+93,"Provence-Alpes-Côte d'Azur","13",2,7,108,"13108","Tarascon",15423,139,15562
+93,"Provence-Alpes-Côte d'Azur","13",1,28,110,"13110","Trets",10678,187,10865
+93,"Provence-Alpes-Côte d'Azur","13",3,14,216,"13216","Marseille 16e Arrondissement",15487,90,15577
+28,"Normandie","14",1,2,47,"14047","Bayeux",12775,333,13108
+28,"Normandie","14",2,16,341,"14341","Ifs",11981,236,12217
+28,"Normandie","14",2,16,437,"14437","Mondeville",10075,226,10301
+28,"Normandie","14",4,25,762,"14762","Vire Normandie",17135,801,17936
+75,"Nouvelle-Aquitaine","16",2,99,102,"16102","Cognac",18448,403,18851
+75,"Nouvelle-Aquitaine","16",1,3,374,"16374","Soyaux",9995,315,10310
+75,"Nouvelle-Aquitaine","17",2,17,306,"17306","Royan",19029,539,19568
+75,"Nouvelle-Aquitaine","19",2,16,272,"19272","Tulle",13992,661,14653
+27,"Bourgogne-Franche-Comté","21",2,6,166,"21166","Chenôve",14445,167,14612
+27,"Bourgogne-Franche-Comté","21",2,7,171,"21171","Chevigny-Saint-Sauveur",10944,214,11158
+27,"Bourgogne-Franche-Comté","21",2,23,617,"21617","Talant",11894,213,12107
+53,"Bretagne","22",1,4,50,"22050","Dinan",14675,556,15231
+53,"Bretagne","22",4,89,93,"22093","Lamballe-Armor",16845,482,17327
+53,"Bretagne","22",4,9,136,"22136","Loudéac",9762,322,10084
+53,"Bretagne","22",4,18,187,"22187","Plérin",14704,485,15189
+53,"Bretagne","22",4,21,215,"22215","Ploufragan",11369,332,11701
+75,"Nouvelle-Aquitaine","23",2,99,96,"23096","Guéret",12840,613,13453
+75,"Nouvelle-Aquitaine","24",3,7,53,"24053","Boulazac Isle Manoire",10697,347,11044
+27,"Bourgogne-Franche-Comté","25",2,1,31,"25031","Audincourt",13944,235,14179
+27,"Bourgogne-Franche-Comté","25",3,16,462,"25462","Pontarlier",17849,867,18716
+27,"Bourgogne-Franche-Comté","25",2,19,580,"25580","Valentigney",10765,191,10956
+84,"Auvergne-Rhône-Alpes","26",2,14,235,"26235","Pierrelatte",13799,257,14056
+84,"Auvergne-Rhône-Alpes","26",3,17,252,"26252","Portes-lès-Valence",10422,161,10583
+28,"Normandie","27",1,13,284,"27284","Gisors",11919,198,12117
+28,"Normandie","27",1,14,375,"27375","Louviers",18350,374,18724
+28,"Normandie","27",2,17,467,"27467","Pont-Audemer",9848,262,10110
+28,"Normandie","27",1,21,701,"27701","Val-de-Reuil",12647,283,12930
+24,"Centre-Val de Loire","28",2,7,88,"28088","Châteaudun",12909,315,13224
+24,"Centre-Val de Loire","28",1,12,218,"28218","Lucé",15602,180,15782
+24,"Centre-Val de Loire","28",1,6,229,"28229","Mainvilliers",11057,236,11293
+24,"Centre-Val de Loire","28",3,8,404,"28404","Vernouillet",12455,160,12615
+53,"Bretagne","29",4,10,46,"29046","Douarnenez",14163,397,14560
+53,"Bretagne","29",4,11,58,"29058","Fouesnant",10098,499,10597
+53,"Bretagne","29",1,12,75,"29075","Guipavas",15460,363,15823
+53,"Bretagne","29",1,13,103,"29103","Landerneau",16206,613,16819
+53,"Bretagne","29",3,17,151,"29151","Morlaix",14903,467,15370
+53,"Bretagne","29",1,12,189,"29189","Plougastel-Daoulas",13445,362,13807
+53,"Bretagne","29",1,3,212,"29212","Plouzané",13473,274,13747
+53,"Bretagne","29",4,25,233,"29233","Quimperlé",12313,469,12782
+53,"Bretagne","29",1,12,235,"29235","Le Relecq-Kerhuon",11791,216,12007
+94,"Corse","2A",4,99,247,"2A247","Porto-Vecchio",11229,153,11382
+76,"Occitanie","30",2,5,28,"30028","Bagnols-sur-Cèze",18248,351,18599
+76,"Occitanie","30",2,6,32,"30032","Beaucaire",15680,156,15836
+76,"Occitanie","30",2,14,202,"30202","Pont-Saint-Esprit",10600,181,10781
+76,"Occitanie","30",2,19,258,"30258","Saint-Gilles",14264,127,14391
+76,"Occitanie","30",2,21,341,"30341","Vauvert",11774,103,11877
+76,"Occitanie","30",2,23,351,"30351","Villeneuve-lès-Avignon",12617,350,12967
+76,"Occitanie","31",1,1,33,"31033","Auterive",10126,133,10259
+76,"Occitanie","31",3,24,44,"31044","Balma",17385,292,17677
+76,"Occitanie","31",3,4,113,"31113","Castanet-Tolosan",14903,225,15128
+76,"Occitanie","31",3,5,116,"31116","Castelginest",10876,119,10995
+76,"Occitanie","31",1,11,187,"31187","Fonsorbes",12546,344,12890
+76,"Occitanie","31",3,25,446,"31446","Ramonville-Saint-Agne",14949,263,15212
+76,"Occitanie","31",2,14,483,"31483","Saint-Gaudens",11613,558,12171
+76,"Occitanie","31",3,23,488,"31488","Saint-Jean",11243,166,11409
+76,"Occitanie","31",3,4,506,"31506","Saint-Orens-de-Gameville",13766,256,14022
+76,"Occitanie","31",3,23,561,"31561","L'Union",12358,188,12546
+76,"Occitanie","31",3,26,588,"31588","Villeneuve-Tolosane",10369,130,10499
+75,"Nouvelle-Aquitaine","33",2,26,3,"33003","Ambarès-et-Lagrave",16798,165,16963
+75,"Nouvelle-Aquitaine","33",6,1,5,"33005","Andernos-les-Bains",12472,274,12746
+75,"Nouvelle-Aquitaine","33",6,32,9,"33009","Arcachon",11259,320,11579
+75,"Nouvelle-Aquitaine","33",6,1,51,"33051","Biganos",11095,137,11232
+75,"Nouvelle-Aquitaine","33",2,25,56,"33056","Blanquefort",16004,632,16636
+75,"Nouvelle-Aquitaine","33",2,23,122,"33122","Cestas",16789,281,17070
+75,"Nouvelle-Aquitaine","33",2,9,167,"33167","Floirac",17749,128,17877
+75,"Nouvelle-Aquitaine","33",2,18,200,"33200","Le Haillan",11572,187,11759
+75,"Nouvelle-Aquitaine","33",2,8,238,"33238","Léognan",10708,156,10864
+75,"Nouvelle-Aquitaine","33",6,14,284,"33284","Mios",11469,190,11659
+75,"Nouvelle-Aquitaine","33",2,25,312,"33312","Parempuyre",10142,102,10244
+75,"Nouvelle-Aquitaine","33",1,20,366,"33366","Saint-André-de-Cubzac",12854,185,13039
+75,"Nouvelle-Aquitaine","33",2,26,433,"33433","Saint-Loubès",10005,108,10113
+75,"Nouvelle-Aquitaine","33",2,28,519,"33519","Le Taillan-Médoc",10727,155,10882
+76,"Occitanie","34",3,10,123,"34123","Juvignac",12783,107,12890
+76,"Occitanie","34",3,10,129,"34129","Lattes",17544,231,17775
+76,"Occitanie","34",3,13,154,"34154","Mauguio",16596,194,16790
+76,"Occitanie","34",3,14,157,"34157","Mèze",12664,170,12834
+76,"Occitanie","34",2,23,255,"34255","Saint-Gély-du-Fesc",10537,273,10810
+76,"Occitanie","34",3,10,270,"34270","Saint-Jean-de-Védas",12570,152,12722
+76,"Occitanie","34",3,22,337,"34337","Villeneuve-lès-Maguelone",10405,116,10521
+53,"Bretagne","35",3,3,24,"35024","Betton",12695,264,12959
+53,"Bretagne","35",3,3,51,"35051","Cesson-Sévigné",17716,496,18212
+53,"Bretagne","35",3,20,55,"35055","Chantepie",10232,159,10391
+53,"Bretagne","35",3,5,69,"35069","Châteaugiron",10518,262,10780
+53,"Bretagne","35",4,26,93,"35093","Dinard",10219,534,10753
+53,"Bretagne","35",3,23,210,"35210","Pacé",11918,339,12257
+53,"Bretagne","35",2,17,236,"35236","Redon",9312,742,10054
+53,"Bretagne","35",3,3,278,"35278","Saint-Grégoire",9837,369,10206
+53,"Bretagne","35",3,22,281,"35281","Saint-Jacques-de-la-Lande",13656,126,13782
+53,"Bretagne","35",1,27,360,"35360","Vitré",18998,555,19553
+24,"Centre-Val de Loire","36",4,9,88,"36088","Issoudun",10992,240,11232
+24,"Centre-Val de Loire","37",3,1,3,"37003","Amboise",12938,392,13330
+24,"Centre-Val de Loire","37",2,10,50,"37050","Chambray-lès-Tours",11589,241,11830
+24,"Centre-Val de Loire","37",2,12,109,"37109","Fondettes",10741,498,11239
+24,"Centre-Val de Loire","37",2,10,156,"37156","Montlouis-sur-Loire",11048,165,11213
+24,"Centre-Val de Loire","37",2,2,195,"37195","La Riche",10325,109,10434
+24,"Centre-Val de Loire","37",2,14,208,"37208","Saint-Avertin",15000,340,15340
+24,"Centre-Val de Loire","37",2,12,214,"37214","Saint-Cyr-sur-Loire",17004,346,17350
+24,"Centre-Val de Loire","37",2,14,233,"37233","Saint-Pierre-des-Corps",15909,268,16177
+84,"Auvergne-Rhône-Alpes","38",2,4,85,"38085","Charvieu-Chavagneux",10280,88,10368
+84,"Auvergne-Rhône-Alpes","38",1,5,158,"38158","Eybens",9974,107,10081
+84,"Auvergne-Rhône-Alpes","38",2,14,193,"38193","L'Isle-d'Abeau",17206,235,17441
+84,"Auvergne-Rhône-Alpes","38",1,16,229,"38229","Meylan",18573,349,18922
+84,"Auvergne-Rhône-Alpes","38",1,20,317,"38317","Le Pont-de-Claix",10805,86,10891
+84,"Auvergne-Rhône-Alpes","38",1,10,382,"38382","Saint-Égrève",16995,221,17216
+84,"Auvergne-Rhône-Alpes","38",1,7,474,"38474","Sassenage",11660,203,11863
+84,"Auvergne-Rhône-Alpes","38",1,6,485,"38485","Seyssinet-Pariset",11753,131,11884
+84,"Auvergne-Rhône-Alpes","38",2,14,553,"38553","Villefontaine",19083,250,19333
+84,"Auvergne-Rhône-Alpes","38",1,29,565,"38565","Voreppe",9758,379,10137
+27,"Bourgogne-Franche-Comté","39",2,99,300,"39300","Lons-le-Saunier",17043,844,17887
+75,"Nouvelle-Aquitaine","40",2,7,46,"40046","Biscarrosse",14551,358,14909
+75,"Nouvelle-Aquitaine","40",1,5,279,"40279","Saint-Paul-lès-Dax",14317,461,14778
+75,"Nouvelle-Aquitaine","40",2,11,281,"40281","Saint-Pierre-du-Mont",9871,365,10236
+75,"Nouvelle-Aquitaine","40",1,15,312,"40312","Tarnos",12920,305,13225
+24,"Centre-Val de Loire","41",3,10,194,"41194","Romorantin-Lanthenay",18115,454,18569
+24,"Centre-Val de Loire","41",2,14,269,"41269","Vendôme",15747,630,16377
+84,"Auvergne-Rhône-Alpes","42",3,1,5,"42005","Andrézieux-Bouthéon",10187,153,10340
+84,"Auvergne-Rhône-Alpes","42",3,15,44,"42044","Le Chambon-Feugerolles",12066,82,12148
+84,"Auvergne-Rhône-Alpes","42",3,6,95,"42095","Firminy",17137,160,17297
+84,"Auvergne-Rhône-Alpes","42",1,7,147,"42147","Montbrison",16064,571,16635
+84,"Auvergne-Rhône-Alpes","42",2,12,184,"42184","Riorges",11045,216,11261
+84,"Auvergne-Rhône-Alpes","42",3,10,186,"42186","Rive-de-Gier",15214,134,15348
+84,"Auvergne-Rhône-Alpes","42",1,20,279,"42279","Saint-Just-Saint-Rambert",15419,245,15664
+84,"Auvergne-Rhône-Alpes","43",2,99,157,"43157","Le Puy-en-Velay",18629,810,19439
+52,"Pays de la Loire","44",5,1,3,"44003","Ancenis-Saint-Géréon",11099,389,11488
+52,"Pays de la Loire","44",5,3,15,"44015","Blain",10187,173,10360
+52,"Pays de la Loire","44",5,6,36,"44036","Châteaubriant",12189,440,12629
+52,"Pays de la Loire","44",3,2,55,"44055","La Baule-Escoublac",16468,566,17034
+52,"Pays de la Loire","44",3,9,69,"44069","Guérande",16151,582,16733
+52,"Pays de la Loire","44",3,19,129,"44129","Pontchâteau",11075,283,11358
+52,"Pays de la Loire","44",3,20,131,"44131","Pornic",17910,445,18355
+52,"Pays de la Loire","44",3,2,132,"44132","Pornichet",12121,309,12430
+52,"Pays de la Loire","44",3,23,154,"44154","Saint-Brevin-les-Pins",14411,363,14774
+52,"Pays de la Loire","44",2,4,172,"44172","Sainte-Luce-sur-Loire",15527,257,15784
+52,"Pays de la Loire","44",2,4,204,"44204","Thouaré-sur-Loire",10783,171,10954
+52,"Pays de la Loire","44",5,5,209,"44209","Treillières",10230,260,10490
+24,"Centre-Val de Loire","45",1,2,4,"45004","Amilly",13267,568,13835
+24,"Centre-Val de Loire","45",1,2,68,"45068","Châlette-sur-Loing",12728,226,12954
+24,"Centre-Val de Loire","45",2,19,75,"45075","La Chapelle-Saint-Mesmin",10218,196,10414
+24,"Centre-Val de Loire","45",1,7,155,"45155","Gien",13387,398,13785
+24,"Centre-Val de Loire","45",1,11,208,"45208","Montargis",15061,439,15500
+24,"Centre-Val de Loire","45",2,19,285,"45285","Saint-Jean-de-la-Ruelle",16594,246,16840
+24,"Centre-Val de Loire","45",2,15,302,"45302","Saran",16679,209,16888
+76,"Occitanie","46",2,99,102,"46102","Figeac",9770,594,10364
+75,"Nouvelle-Aquitaine","47",2,98,157,"47157","Marmande",17239,502,17741
+76,"Occitanie","48",2,99,95,"48095","Mende",12316,771,13087
+52,"Pays de la Loire","49",1,4,15,"49015","Avrillé",14938,392,15330
+52,"Pays de la Loire","49",3,8,18,"49018","Baugé-en-Anjou",11757,240,11997
+52,"Pays de la Loire","49",1,86,50,"49050","Brissac Loire Aubance",10895,280,11175
+52,"Pays de la Loire","49",2,16,69,"49069","Orée d'Anjou",16709,311,17020
+52,"Pays de la Loire","49",3,14,125,"49125","Doué-en-Anjou",11228,239,11467
+52,"Pays de la Loire","49",2,9,218,"49218","Montrevault-sur-Èvre",15755,300,16055
+52,"Pays de la Loire","49",2,16,244,"49244","Mauges-sur-Loire",18331,493,18824
+52,"Pays de la Loire","49",1,17,246,"49246","Les Ponts-de-Cé",12725,546,13271
+52,"Pays de la Loire","49",1,7,307,"49307","Loire-Authion",16416,576,16992
+52,"Pays de la Loire","49",4,20,331,"49331","Segré-en-Anjou Bleu",17699,797,18496
+52,"Pays de la Loire","49",1,7,353,"49353","Trélazé",15358,186,15544
+28,"Normandie","50",1,84,25,"50025","Avranches",10240,508,10748
+28,"Normandie","50",2,14,41,"50041","La Hague",11223,295,11518
+28,"Normandie","50",4,83,99,"50099","Carentan-les-Marais",10220,156,10376
+28,"Normandie","50",1,13,218,"50218","Granville",12581,698,13279
+44,"Grand Est","51",3,14,573,"51573","Tinqueux",10552,130,10682
+44,"Grand Est","51",4,23,649,"51649","Vitry-le-François",11454,208,11662
+52,"Pays de la Loire","53",1,88,62,"53062","Château-Gontier-sur-Mayenne",16710,660,17370
+52,"Pays de la Loire","53",3,14,147,"53147","Mayenne",12900,677,13577
+44,"Grand Est","54",3,6,304,"54304","Laxou",14671,183,14854
+44,"Grand Est","54",1,7,323,"54323","Longwy",15191,226,15417
+44,"Grand Est","54",2,98,329,"54329","Lunéville",17755,296,18051
+44,"Grand Est","54",3,21,357,"54357","Maxéville",9921,116,10037
+44,"Grand Est","54",3,18,431,"54431","Pont-à-Mousson",14338,210,14548
+44,"Grand Est","54",3,19,482,"54482","Saint-Max",10073,86,10159
+44,"Grand Est","54",4,20,528,"54528","Toul",15849,212,16061
+44,"Grand Est","54",3,6,578,"54578","Villers-lès-Nancy",14761,325,15086
+44,"Grand Est","54",1,23,580,"54580","Villerupt",10069,89,10158
+44,"Grand Est","55",1,98,29,"55029","Bar-le-Duc",14668,564,15232
+44,"Grand Est","55",3,99,545,"55545","Verdun",16689,969,17658
+53,"Bretagne","56",1,1,7,"56007","Auray",14222,369,14591
+53,"Bretagne","56",1,5,78,"56078","Guidel",11947,306,12253
+53,"Bretagne","56",1,6,83,"56083","Hennebont",15746,450,16196
+53,"Bretagne","56",1,12,162,"56162","Ploemeur",18591,637,19228
+53,"Bretagne","56",2,13,165,"56165","Ploërmel",9879,537,10416
+53,"Bretagne","56",2,15,178,"56178","Pontivy",14774,856,15630
+53,"Bretagne","56",3,21,206,"56206","Saint-Avé",11927,287,12214
+44,"Grand Est","57",9,18,19,"57019","Amnéville",10828,80,10908
+44,"Grand Est","57",3,3,160,"57160","Creutzwald",12514,190,12704
+44,"Grand Est","57",7,6,206,"57206","Fameck",14798,167,14965
+44,"Grand Est","57",7,6,221,"57221","Florange",11869,105,11974
+44,"Grand Est","57",3,9,240,"57240","Freyming-Merlebach",13027,120,13147
+44,"Grand Est","57",7,10,306,"57306","Hayange",15968,214,16182
+44,"Grand Est","57",9,24,433,"57433","Maizières-lès-Metz",11792,98,11890
+44,"Grand Est","57",9,15,447,"57447","Marly",9971,215,10186
+44,"Grand Est","57",3,19,606,"57606","Saint-Avold",15045,313,15358
+44,"Grand Est","57",5,21,630,"57630","Sarrebourg",12359,302,12661
+44,"Grand Est","57",3,25,660,"57660","Stiring-Wendel",11067,113,11180
+44,"Grand Est","57",9,24,751,"57751","Woippy",14302,112,14414
+44,"Grand Est","57",7,27,757,"57757","Yutz",17401,282,17683
+32,"Hauts-de-France","59",3,1,8,"59008","Aniche",9997,60,10057
+32,"Hauts-de-France","59",5,2,11,"59011","Annœullin",10780,99,10879
+32,"Hauts-de-France","59",6,3,14,"59014","Anzin",13422,82,13504
+32,"Hauts-de-France","59",4,8,43,"59043","Bailleul",14869,229,15098
+32,"Hauts-de-France","59",6,3,112,"59112","Bruay-sur-l'Escaut",11309,54,11363
+32,"Hauts-de-France","59",2,11,139,"59139","Caudry",14070,150,14220
+32,"Hauts-de-France","59",5,22,152,"59152","Comines",12671,80,12751
+32,"Hauts-de-France","59",6,14,179,"59179","Douchy-les-Mines",10207,45,10252
+32,"Hauts-de-France","59",5,18,220,"59220","Faches-Thumesnil",18110,117,18227
+32,"Hauts-de-France","59",1,19,249,"59249","Fourmies",11456,176,11632
+32,"Hauts-de-France","59",4,20,273,"59273","Gravelines",11223,170,11393
+32,"Hauts-de-France","59",5,18,286,"59286","Haubourdin",14757,107,14864
+32,"Hauts-de-France","59",1,7,291,"59291","Hautmont",14182,74,14256
+32,"Hauts-de-France","59",5,13,299,"59299","Hem",18713,156,18869
+32,"Hauts-de-France","59",1,30,324,"59324","Jeumont",10342,91,10433
+32,"Hauts-de-France","59",5,13,367,"59367","Lys-lez-Lannoy",13793,136,13929
+32,"Hauts-de-France","59",6,29,383,"59383","Marly",12024,122,12146
+32,"Hauts-de-France","59",5,23,386,"59386","Marquette-lez-Lille",11213,64,11277
+32,"Hauts-de-France","59",5,24,421,"59421","Mouvaux",13173,189,13362
+32,"Hauts-de-France","59",5,37,426,"59426","Neuville-en-Ferrain",10160,68,10228
+32,"Hauts-de-France","59",6,34,491,"59491","Raismes",12055,53,12108
+32,"Hauts-de-France","59",5,26,507,"59507","Ronchin",19437,136,19573
+32,"Hauts-de-France","59",5,37,508,"59508","Roncq",13784,113,13897
+32,"Hauts-de-France","59",6,34,526,"59526","Saint-Amand-les-Eaux",15980,180,16160
+32,"Hauts-de-France","59",5,23,527,"59527","Saint-André-lez-Lille",12942,111,13053
+32,"Hauts-de-France","59",6,39,544,"59544","Saint-Saulve",11117,151,11268
+32,"Hauts-de-France","59",5,18,560,"59560","Seclin",12834,94,12928
+32,"Hauts-de-France","59",3,35,569,"59569","Sin-le-Noble",15603,102,15705
+32,"Hauts-de-France","59",3,35,574,"59574","Somain",11790,91,11881
+32,"Hauts-de-France","59",6,29,616,"59616","Vieux-Condé",10446,58,10504
+32,"Hauts-de-France","59",5,23,636,"59636","Wambrechies",10798,114,10912
+32,"Hauts-de-France","59",5,18,648,"59648","Wattignies",15531,204,15735
+32,"Hauts-de-France","60",4,12,139,"60139","Chambly",9980,122,10102
+32,"Hauts-de-France","60",4,3,141,"60141","Chantilly",10652,237,10889
+32,"Hauts-de-France","60",2,5,157,"60157","Clermont",10475,217,10692
+32,"Hauts-de-France","60",4,9,176,"60176","Crépy-en-Valois",14217,277,14494
+32,"Hauts-de-France","60",1,12,395,"60395","Méru",14320,190,14510
+32,"Hauts-de-France","60",4,13,414,"60414","Montataire",13701,144,13845
+32,"Hauts-de-France","60",3,17,471,"60471","Noyon",12987,228,13215
+32,"Hauts-de-France","60",4,18,509,"60509","Pont-Sainte-Maxence",12291,130,12421
+32,"Hauts-de-France","60",4,20,612,"60612","Senlis",15255,550,15805
+28,"Normandie","61",2,98,6,"61006","Argentan",13291,368,13659
+28,"Normandie","61",2,99,169,"61169","Flers",14482,339,14821
+32,"Hauts-de-France","62",2,5,48,"62048","Auchel",10062,43,10105
+32,"Hauts-de-France","62",7,8,65,"62065","Avion",17672,135,17807
+32,"Hauts-de-France","62",4,10,108,"62108","Berck",13298,337,13635
+32,"Hauts-de-France","62",7,17,186,"62186","Bully-les-Mines",12221,75,12296
+32,"Hauts-de-France","62",7,21,215,"62215","Carvin",17852,96,17948
+32,"Hauts-de-France","62",7,21,250,"62250","Courrières",10199,100,10299
+32,"Hauts-de-France","62",4,24,318,"62318","Étaples",10930,127,11057
+32,"Hauts-de-France","62",7,26,413,"62413","Harnes",12317,88,12405
+32,"Hauts-de-France","62",2,31,516,"62516","Lillers",9988,99,10087
+32,"Hauts-de-France","62",5,32,525,"62525","Longuenesse",10568,467,11035
+32,"Hauts-de-France","62",6,34,548,"62548","Marck",10494,133,10627
+32,"Hauts-de-France","62",7,8,570,"62570","Méricourt",11431,49,11480
+32,"Hauts-de-France","62",2,35,617,"62617","Nœux-les-Mines",11520,48,11568
+32,"Hauts-de-France","62",7,27,637,"62637","Oignies",10210,45,10255
+32,"Hauts-de-France","62",3,36,643,"62643","Outreau",13270,145,13415
+32,"Hauts-de-France","62",3,14,758,"62758","Saint-Martin-Boulogne",10999,154,11153
+32,"Hauts-de-France","62",5,37,765,"62765","Saint-Omer",14661,602,15263
+84,"Auvergne-Rhône-Alpes","63",2,3,14,"63014","Aubière",10211,156,10367
+84,"Auvergne-Rhône-Alpes","63",2,4,32,"63032","Beaumont",10650,197,10847
+84,"Auvergne-Rhône-Alpes","63",2,8,75,"63075","Chamalières",17454,523,17977
+84,"Auvergne-Rhône-Alpes","63",2,17,164,"63164","Gerzat",10258,97,10355
+84,"Auvergne-Rhône-Alpes","63",3,18,178,"63178","Issoire",15014,375,15389
+84,"Auvergne-Rhône-Alpes","63",2,24,284,"63284","Pont-du-Château",12459,327,12786
+84,"Auvergne-Rhône-Alpes","63",4,25,300,"63300","Riom",18736,759,19495
+84,"Auvergne-Rhône-Alpes","63",5,30,430,"63430","Thiers",11633,364,11997
+75,"Nouvelle-Aquitaine","64",3,8,129,"64129","Billère",13866,214,14080
+75,"Nouvelle-Aquitaine","64",1,10,260,"64260","Hendaye",17796,458,18254
+75,"Nouvelle-Aquitaine","64",3,11,348,"64348","Lons",13915,273,14188
+75,"Nouvelle-Aquitaine","64",2,98,422,"64422","Oloron-Sainte-Marie",10616,657,11273
+75,"Nouvelle-Aquitaine","64",3,16,430,"64430","Orthez",10684,638,11322
+75,"Nouvelle-Aquitaine","64",1,24,483,"64483","Saint-Jean-de-Luz",14601,406,15007
+75,"Nouvelle-Aquitaine","64",1,10,545,"64545","Urrugne",10543,161,10704
+76,"Occitanie","65",1,98,286,"65286","Lourdes",13509,295,13804
+76,"Occitanie","66",1,5,8,"66008","Argelès-sur-Mer",10792,296,11088
+76,"Occitanie","66",2,8,28,"66028","Cabestany",10338,216,10554
+76,"Occitanie","66",2,3,37,"66037","Canet-en-Roussillon",12598,264,12862
+76,"Occitanie","66",2,4,141,"66141","Pia",10733,97,10830
+76,"Occitanie","66",1,3,171,"66171","Saint-Cyprien",11398,145,11543
+76,"Occitanie","66",2,14,172,"66172","Saint-Estève",11550,157,11707
+76,"Occitanie","66",2,4,180,"66180","Saint-Laurent-de-la-Salanque",10010,125,10135
+44,"Grand Est","67",8,15,43,"67043","Bischheim",17939,223,18162
+44,"Grand Est","67",2,1,46,"67046","Bischwiller",12435,135,12570
+44,"Grand Est","67",2,3,67,"67067","Brumath",10238,104,10342
+44,"Grand Est","67",5,4,130,"67130","Erstein",10887,114,11001
+44,"Grand Est","67",8,6,204,"67204","Hœnheim",11469,83,11552
+44,"Grand Est","67",5,12,348,"67348","Obernai",12216,467,12683
+44,"Grand Est","67",8,7,365,"67365","Ostwald",13310,146,13456
+44,"Grand Est","67",4,14,437,"67437","Saverne",11390,272,11662
+44,"Grand Est","67",5,16,462,"67462","Sélestat",19300,251,19551
+44,"Grand Est","68",6,3,63,"68063","Cernay",11745,207,11952
+44,"Grand Est","68",6,7,112,"68112","Guebwiller",11137,290,11427
+44,"Grand Est","68",4,12,154,"68154","Illzach",14829,221,15050
+44,"Grand Est","68",4,8,166,"68166","Kingersheim",13178,179,13357
+44,"Grand Est","68",4,8,256,"68256","Pfastatt",10237,133,10370
+44,"Grand Est","68",4,13,271,"68271","Riedisheim",12163,283,12446
+44,"Grand Est","68",4,13,278,"68278","Rixheim",13795,222,14017
+44,"Grand Est","68",4,17,375,"68375","Wittelsheim",10334,131,10465
+44,"Grand Est","68",4,17,376,"68376","Wittenheim",15262,134,15396
+84,"Auvergne-Rhône-Alpes","69",2,3,19,"69019","Belleville-en-Beaujolais",13542,277,13819
+84,"Auvergne-Rhône-Alpes","69",1,5,27,"69027","Brignais",12388,194,12582
+84,"Auvergne-Rhône-Alpes","69",1,0,69,"69069","Craponne",11903,205,12108
+84,"Auvergne-Rhône-Alpes","69",1,0,81,"69081","Écully",18361,326,18687
+84,"Auvergne-Rhône-Alpes","69",1,0,89,"69089","Francheville",15204,210,15414
+84,"Auvergne-Rhône-Alpes","69",1,0,152,"69152","Pierre-Bénite",10515,49,10564
+84,"Auvergne-Rhône-Alpes","69",1,0,199,"69199","Saint-Fons",19360,55,19415
+84,"Auvergne-Rhône-Alpes","69",2,10,243,"69243","Tarare",10428,249,10677
+84,"Auvergne-Rhône-Alpes","69",1,0,271,"69271","Chassieu",11092,152,11244
+84,"Auvergne-Rhône-Alpes","69",1,0,273,"69273","Corbas",10932,79,11011
+84,"Auvergne-Rhône-Alpes","69",1,6,277,"69277","Genas",13483,261,13744
+84,"Auvergne-Rhône-Alpes","69",1,0,283,"69283","Mions",13707,150,13857
+27,"Bourgogne-Franche-Comté","70",1,97,285,"70285","Héricourt",10478,297,10775
+27,"Bourgogne-Franche-Comté","70",2,99,550,"70550","Vesoul",15130,762,15892
+27,"Bourgogne-Franche-Comté","71",1,96,14,"71014","Autun",13145,991,14136
+27,"Bourgogne-Franche-Comté","71",1,23,306,"71306","Montceau-les-Mines",16831,262,17093
+52,"Pays de la Loire","72",3,16,3,"72003","Allonnes",11013,113,11126
+52,"Pays de la Loire","72",1,6,154,"72154","La Flèche",14937,1070,16007
+52,"Pays de la Loire","72",1,17,264,"72264","Sablé-sur-Sarthe",12096,468,12564
+84,"Auvergne-Rhône-Alpes","73",2,12,179,"73179","La Motte-Servolex",12299,642,12941
+84,"Auvergne-Rhône-Alpes","74",2,5,42,"74042","Bonneville",12895,431,13326
+84,"Auvergne-Rhône-Alpes","74",2,6,81,"74081","Cluses",17164,361,17525
+84,"Auvergne-Rhône-Alpes","74",3,9,133,"74133","Gaillard",10175,110,10285
+84,"Auvergne-Rhône-Alpes","74",2,10,208,"74208","Passy",11068,420,11488
+84,"Auvergne-Rhône-Alpes","74",2,11,224,"74224","La Roche-sur-Foron",11263,376,11639
+84,"Auvergne-Rhône-Alpes","74",1,12,225,"74225","Rumilly",15998,462,16460
+84,"Auvergne-Rhône-Alpes","74",3,13,243,"74243","Saint-Julien-en-Genevois",15840,211,16051
+84,"Auvergne-Rhône-Alpes","74",2,14,256,"74256","Sallanches",17133,467,17600
+84,"Auvergne-Rhône-Alpes","74",3,9,298,"74298","Vétraz-Monthoux",9874,207,10081
+11,"Île-de-France","75",1,NA,101,"75101","Paris 1er Arrondissement",15919,111,16030
+28,"Normandie","76",3,1,57,"76057","Barentin",12154,238,12392
+28,"Normandie","76",3,2,108,"76108","Bois-Guillaume",14262,361,14623
+28,"Normandie","76",2,3,114,"76114","Bolbec",11635,147,11782
+28,"Normandie","76",3,4,157,"76157","Canteleu",13966,360,14326
+28,"Normandie","76",3,5,165,"76165","Caudebec-lès-Elbeuf",10135,69,10204
+28,"Normandie","76",3,22,216,"76216","Déville-lès-Rouen",10745,62,10807
+28,"Normandie","76",3,9,231,"76231","Elbeuf",15951,138,16089
+28,"Normandie","76",2,11,259,"76259","Fécamp",18016,269,18285
+28,"Normandie","76",3,4,410,"76410","Maromme",11024,122,11146
+28,"Normandie","76",2,15,447,"76447","Montivilliers",15457,203,15660
+28,"Normandie","76",2,25,476,"76476","Port-Jérôme-sur-Seine",10387,172,10559
+28,"Normandie","76",3,31,484,"76484","Oissel",12367,83,12450
+28,"Normandie","76",3,35,758,"76758","Yvetot",11385,208,11593
+11,"Île-de-France","77",4,7,14,"77014","Avon",13660,234,13894
+11,"Île-de-France","77",5,4,53,"77053","Brie-Comte-Robert",19213,265,19478
+11,"Île-de-France","77",2,20,67,"77067","Cesson",11140,110,11250
+11,"Île-de-France","77",1,3,118,"77118","Claye-Souilly",12282,90,12372
+11,"Île-de-France","77",1,5,131,"77131","Coulommiers",15250,205,15455
+11,"Île-de-France","77",1,12,153,"77153","Dammartin-en-Goële",11272,91,11363
+11,"Île-de-France","77",4,7,186,"77186","Fontainebleau",15945,495,16440
+11,"Île-de-France","77",2,4,251,"77251","Lieusaint",13808,81,13889
+11,"Île-de-France","77",5,1,258,"77258","Lognes",14650,48,14698
+11,"Île-de-France","77",2,4,296,"77296","Moissy-Cramayel",18248,142,18390
+11,"Île-de-France","77",5,9,307,"77307","Montévrain",13934,90,14024
+11,"Île-de-France","77",4,13,316,"77316","Moret-Loing-et-Orvanne",12581,317,12898
+11,"Île-de-France","77",4,15,333,"77333","Nemours",13189,149,13338
+11,"Île-de-France","77",5,1,337,"77337","Noisiel",15461,97,15558
+11,"Île-de-France","77",3,18,379,"77379","Provins",11958,310,12268
+11,"Île-de-France","77",2,19,407,"77407","Saint-Fargeau-Ponthierry",14516,105,14621
+11,"Île-de-France","77",5,9,464,"77464","Thorigny-sur-Marne",10405,105,10510
+11,"Île-de-France","77",5,23,479,"77479","Vaires-sur-Marne",13518,118,13636
+11,"Île-de-France","77",2,11,487,"77487","Vaux-le-Pénil",11174,152,11326
+11,"Île-de-France","78",3,5,15,"78015","Andrésy",13230,142,13372
+11,"Île-de-France","78",1,1,29,"78029","Aubergenville",12317,81,12398
+11,"Île-de-France","78",4,15,73,"78073","Bois-d'Arcy",15435,147,15582
+11,"Île-de-France","78",3,13,123,"78123","Carrières-sous-Poissy",18316,115,18431
+11,"Île-de-France","78",3,6,124,"78124","Carrières-sur-Seine",15038,218,15256
+11,"Île-de-France","78",3,5,138,"78138","Chanteloup-les-Vignes",10735,67,10802
+11,"Île-de-France","78",4,12,165,"78165","Les Clayes-sous-Bois",17237,221,17458
+11,"Île-de-France","78",3,3,190,"78190","Croissy-sur-Seine",10399,264,10663
+11,"Île-de-France","78",4,15,242,"78242","Fontenay-le-Fleury",13455,164,13619
+11,"Île-de-France","78",1,7,335,"78335","Limay",17626,92,17718
+11,"Île-de-France","78",3,3,372,"78372","Marly-le-Roi",16531,479,17010
+11,"Île-de-France","78",2,9,383,"78383","Maurepas",18611,200,18811
+11,"Île-de-France","78",3,6,418,"78418","Montesson",14511,229,14740
+11,"Île-de-France","78",3,16,481,"78481","Le Pecq",15832,289,16121
+11,"Île-de-France","78",3,19,624,"78624","Triel-sur-Seine",12388,185,12573
+11,"Île-de-France","78",3,19,642,"78642","Verneuil-sur-Seine",15914,319,16233
+11,"Île-de-France","78",3,19,643,"78643","Vernouillet",10025,189,10214
+11,"Île-de-France","78",3,3,650,"78650","Le Vésinet",15646,471,16117
+11,"Île-de-France","78",4,15,674,"78674","Villepreux",11150,166,11316
+11,"Île-de-France","78",4,21,686,"78686","Viroflay",16960,362,17322
+11,"Île-de-France","78",2,9,688,"78688","Voisins-le-Bretonneux",10721,380,11101
+75,"Nouvelle-Aquitaine","79",3,13,202,"79202","Parthenay",10058,377,10435
+75,"Nouvelle-Aquitaine","79",1,16,329,"79329","Thouars",14000,292,14292
+76,"Occitanie","81",1,97,60,"81060","Carmaux",9898,162,10060
+76,"Occitanie","81",1,11,99,"81099","Gaillac",15663,345,16008
+76,"Occitanie","81",2,12,105,"81105","Graulhet",13166,222,13388
+76,"Occitanie","81",2,15,140,"81140","Lavaur",10830,384,11214
+76,"Occitanie","81",2,99,163,"81163","Mazamet",10064,407,10471
+76,"Occitanie","82",1,3,33,"82033","Castelsarrasin",14178,256,14434
+76,"Occitanie","82",1,5,112,"82112","Moissac",13748,307,14055
+93,"Provence-Alpes-Côte d'Azur","83",2,12,16,"83016","Le Beausset",10007,181,10188
+93,"Provence-Alpes-Côte d'Azur","83",3,1,23,"83023","Brignoles",17664,329,17993
+93,"Provence-Alpes-Côte d'Azur","83",1,15,42,"83042","Cogolin",11762,191,11953
+93,"Provence-Alpes-Côte d'Azur","83",2,2,47,"83047","La Crau",19179,411,19590
+93,"Provence-Alpes-Côte d'Azur","83",2,18,49,"83049","Cuers",12550,138,12688
+93,"Provence-Alpes-Côte d'Azur","83",2,2,71,"83071","La Londe-les-Maures",11442,135,11577
+93,"Provence-Alpes-Côte d'Azur","83",3,9,73,"83073","Le Luc",11053,109,11162
+93,"Provence-Alpes-Côte d'Azur","83",2,10,90,"83090","Ollioules",14011,267,14278
+93,"Provence-Alpes-Côte d'Azur","83",2,6,98,"83098","Le Pradet",10728,179,10907
+93,"Provence-Alpes-Côte d'Azur","83",1,11,107,"83107","Roquebrune-sur-Argens",14448,224,14672
+93,"Provence-Alpes-Côte d'Azur","83",2,12,112,"83112","Saint-Cyr-sur-Mer",12103,241,12344
+93,"Provence-Alpes-Côte d'Azur","83",1,15,115,"83115","Sainte-Maxime",14433,182,14615
+93,"Provence-Alpes-Côte d'Azur","83",3,13,116,"83116","Saint-Maximin-la-Sainte-Baume",17631,514,18145
+93,"Provence-Alpes-Côte d'Azur","83",2,10,123,"83123","Sanary-sur-Mer",17268,258,17526
+93,"Provence-Alpes-Côte d'Azur","83",2,18,130,"83130","Solliès-Pont",12080,148,12228
+93,"Provence-Alpes-Côte d'Azur","83",1,23,148,"83148","Vidauban",12573,147,12720
+93,"Provence-Alpes-Côte d'Azur","84",1,1,3,"84003","Apt",10536,238,10774
+93,"Provence-Alpes-Côte d'Azur","84",3,5,19,"84019","Bollène",13605,196,13801
+93,"Provence-Alpes-Côte d'Azur","84",3,10,80,"84080","Monteux",13129,248,13377
+93,"Provence-Alpes-Côte d'Azur","84",3,12,88,"84088","Pernes-les-Fontaines",10636,255,10891
+93,"Provence-Alpes-Côte d'Azur","84",2,14,92,"84092","Le Pontet",17551,136,17687
+93,"Provence-Alpes-Côte d'Azur","84",2,15,129,"84129","Sorgues",19117,229,19346
+93,"Provence-Alpes-Côte d'Azur","84",2,14,141,"84141","Vedène",11457,353,11810
+52,"Pays de la Loire","85",2,1,3,"85003","Aizenay",10146,204,10350
+52,"Pays de la Loire","85",1,5,92,"85092","Fontenay-le-Comte",13471,652,14123
+52,"Pays de la Loire","85",2,6,109,"85109","Les Herbiers",16453,542,16995
+52,"Pays de la Loire","85",3,15,226,"85226","Saint-Hilaire-de-Riez",12682,255,12937
+75,"Nouvelle-Aquitaine","86",3,14,41,"86041","Buxerolles",10105,130,10235
+75,"Nouvelle-Aquitaine","87",2,17,114,"87114","Panazol",11064,200,11264
+75,"Nouvelle-Aquitaine","87",3,19,154,"87154","Saint-Junien",11387,304,11691
+44,"Grand Est","88",3,99,413,"88413","Saint-Dié-des-Vosges",19319,454,19773
+11,"Île-de-France","91",3,1,21,"91021","Arpajon",11281,101,11382
+11,"Île-de-France","91",2,15,86,"91086","Bondoufle",10862,107,10969
+11,"Île-de-France","91",1,5,200,"91200","Dourdan",11279,192,11471
+11,"Île-de-France","91",2,7,215,"91215","Épinay-sous-Sénart",11869,80,11949
+11,"Île-de-France","91",3,11,216,"91216","Épinay-sur-Orge",10760,110,10870
+11,"Île-de-France","91",2,15,235,"91235","Fleury-Mérogis",13983,14,13997
+11,"Île-de-France","91",3,14,312,"91312","Igny",10213,305,10518
+11,"Île-de-France","91",3,2,326,"91326","Juvisy-sur-Orge",18424,109,18533
+11,"Île-de-France","91",2,13,386,"91386","Mennecy",15711,251,15962
+11,"Île-de-France","91",3,17,432,"91432","Morangis",13211,78,13289
+11,"Île-de-France","91",3,14,471,"91471","Orsay",16007,345,16352
+11,"Île-de-France","91",3,1,552,"91552","Saint-Germain-lès-Arpajon",11305,84,11389
+11,"Île-de-France","91",2,7,573,"91573","Saint-Pierre-du-Perray",11680,112,11792
+11,"Île-de-France","91",3,10,645,"91645","Verrières-le-Buisson",14597,289,14886
+11,"Île-de-France","91",3,18,661,"91661","Villebon-sur-Yvette",10322,172,10494
+11,"Île-de-France","92",2,23,33,"92033","Garches",17898,413,18311
+11,"Île-de-France","92",3,23,77,"92077","Ville-d'Avray",10694,260,10954
+11,"Île-de-France","93",2,7,13,"93013","Le Bourget",14832,38,14870
+11,"Île-de-France","93",2,7,30,"93030","Dugny",11328,40,11368
+11,"Île-de-France","93",1,15,61,"93061","Le Pré-Saint-Gervais",16865,48,16913
+11,"Île-de-France","93",2,21,62,"93062","Le Raincy",14877,189,15066
+11,"Île-de-France","93",3,9,79,"93079","Villetaneuse",12663,89,12752
+11,"Île-de-France","94",1,16,4,"94004","Boissy-Saint-Léger",17570,37,17607
+11,"Île-de-France","94",1,18,11,"94011","Bonneuil-sur-Marne",18750,64,18814
+11,"Île-de-France","94",2,22,15,"94015","Bry-sur-Marne",17400,320,17720
+11,"Île-de-France","94",1,4,19,"94019","Chennevières-sur-Marne",18367,101,18468
+11,"Île-de-France","94",3,12,37,"94037","Gentilly",19048,112,19160
+11,"Île-de-France","94",1,18,55,"94055","Ormesson-sur-Marne",10540,85,10625
+11,"Île-de-France","94",1,16,60,"94060","La Queue-en-Brie",12081,115,12196
+11,"Île-de-France","94",2,5,69,"94069","Saint-Maurice",14603,100,14703
+11,"Île-de-France","94",3,21,74,"94074","Valenton",14482,48,14530
+11,"Île-de-France","94",1,16,75,"94075","Villecresnes",11642,76,11718
+11,"Île-de-France","95",2,11,19,"95019","Arnouville",14585,73,14658
+11,"Île-de-France","95",2,7,199,"95199","Domont",16078,166,16244
+11,"Île-de-France","95",2,15,210,"95210","Enghien-les-Bains",11440,144,11584
+11,"Île-de-France","95",3,5,218,"95218","Éragny",18468,129,18597
+11,"Île-de-France","95",3,14,313,"95313","L'Isle-Adam",11846,183,12029
+11,"Île-de-France","95",3,5,323,"95323","Jouy-le-Moutier",17175,126,17301
+11,"Île-de-France","95",2,12,351,"95351","Louvres",12083,80,12163
+11,"Île-de-France","95",3,17,394,"95394","Méry-sur-Oise",10046,71,10117
+11,"Île-de-France","95",2,6,427,"95427","Montmagny",14775,56,14831
+11,"Île-de-France","95",3,4,476,"95476","Osny",17277,191,17468
+11,"Île-de-France","95",3,14,487,"95487","Persan",13996,52,14048
+11,"Île-de-France","95",1,19,488,"95488","Pierrelaye",9998,39,10037
+11,"Île-de-France","95",2,6,539,"95539","Saint-Brice-sous-Forêt",15209,77,15286
+11,"Île-de-France","95",1,7,563,"95563","Saint-Leu-la-Forêt",15979,152,16131
+11,"Île-de-France","95",2,15,598,"95598","Soisy-sous-Montmorency",18008,160,18168
+11,"Île-de-France","95",3,20,637,"95637","Vauréal",16034,177,16211
+1,"Guadeloupe","971",1,7,107,"97107","Capesterre-Belle-Eau",17731,157,17888
+1,"Guadeloupe","971",1,9,115,"97115","Lamentin",18527,277,18804
+1,"Guadeloupe","971",2,12,116,"97116","Morne-à-l'Eau",15898,191,16089
+1,"Guadeloupe","971",2,15,120,"97120","Pointe-à-Pitre",14486,90,14576
+1,"Guadeloupe","971",1,6,124,"97124","Saint-Claude",10700,200,10900
+1,"Guadeloupe","971",2,16,125,"97125","Saint-François",13004,146,13150
+1,"Guadeloupe","971",1,99,129,"97129","Sainte-Rose",17630,248,17878
+2,"Martinique","972",3,NA,207,"97207","Ducos",17912,254,18166
+2,"Martinique","972",3,NA,210,"97210","Le François",15996,150,16146
+2,"Martinique","972",3,NA,220,"97220","Rivière-Pilote",11712,118,11830
+2,"Martinique","972",3,NA,221,"97221","Rivière-Salée",11887,221,12108
+2,"Martinique","972",3,NA,223,"97223","Saint-Esprit",10270,102,10372
+2,"Martinique","972",1,NA,224,"97224","Saint-Joseph",16135,208,16343
+2,"Martinique","972",2,NA,228,"97228","Sainte-Marie",14650,184,14834
+2,"Martinique","972",1,NA,229,"97229","Schœlcher",19341,177,19518
+2,"Martinique","972",2,NA,230,"97230","La Trinité",11747,167,11914
+3,"Guyane","973",1,NA,305,"97305","Macouria",18847,173,19020
+3,"Guyane","973",2,NA,306,"97306","Mana",11764,122,11886
+4,"La Réunion","974",2,1,401,"97401","Les Avirons",11434,227,11661
+4,"La Réunion","974",3,6,402,"97402","Bras-Panon",13344,215,13559
+4,"La Réunion","974",2,1,404,"97404","L'Étang-Salé",13836,194,14030
+4,"La Réunion","974",2,22,405,"97405","Petite-Île",12617,155,12772
