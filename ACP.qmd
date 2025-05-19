@@ -1,0 +1,70 @@
+---
+title: "ACP"
+format: html
+editor: visual
+---
+
+## ACP
+
+Library
+
+```{r}
+#| echo: false
+#| include : false
+library(FactoMineR)
+library(factoextra)
+library(dplyr)
+```
+
+Lecture fichier
+
+```{r}
+#| echo: false
+#| include : false
+df=read.csv("Communes10-20K-Maslow.csv",sep=";")
+```
+
+**ACP**
+
+```{r}
+#| echo: false
+#| include : false
+# Ajout des ratios pour 1000 habitants à partir de PTOT
+df <- df %>%
+  mutate(
+    Ratio_Physiologique = (Physiologique / PTOT) * 1000,
+    Ratio_Sécurité = (Sécurité / PTOT) * 1000,
+    Ratio_Appartenance = (Appartenance / PTOT) * 1000,
+    Ratio_Estime = (Estime / PTOT) * 1000,
+    Ratio_Actualisation = (Actualisation.de.soi / PTOT) * 1000,
+    Ratio_Cognitif = (Cognitif / PTOT) * 1000
+  )
+
+```
+
+ACP (/1000)
+
+```{r}
+#| echo: false
+#| include : false
+res_acp <- PCA(df[,12:17], scale.unit = TRUE, graph = FALSE)
+```
+
+```{r}
+fviz_pca_ind(res_acp,
+             col.ind = "contrib", 
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE,
+             title = "ACP - Communes (Individus)")
+
+# Graphique des variables (ratios)
+fviz_pca_var(res_acp, 
+             col.var = "contrib", 
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE,
+             title = "ACP - Ratios pour 1000 habitants (Variables)")
+
+# Contributions (affichage console)
+res_acp$var$contrib  # Contribution des variables aux axes
+res_acp$ind$contrib  # Contribution des individus
+```
