@@ -52,9 +52,8 @@ res_acp <- PCA(df[,12:17], scale.unit = TRUE, graph = FALSE)
 
 ```{r}
 fviz_pca_ind(res_acp,
-             col.ind = "contrib", 
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
-             repel = TRUE,
+             repel = F,
              title = "ACP - Communes (Individus)")
 
 # Graphique des variables (ratios)
