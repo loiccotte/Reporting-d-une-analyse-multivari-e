@@ -1,4 +1,3 @@
-# 📦 Librairies nécessaires
 library(shiny)
 library(bslib)
 library(leaflet)
@@ -8,473 +7,1044 @@ library(dplyr)
 library(readr)
 library(stringr)
 library(RColorBrewer)
+library(FactoMineR)
+library(factoextra)
+library(ggplot2)
 
-# 🎨 Interface utilisateur moderne
+# 🎨 Thème UI ultra-moderne
+modern_theme <- bs_theme(
+  version = 5,
+  bootswatch = "flatly",
+  primary = "#1e3a8a",
+  secondary = "#64748b",
+  success = "#059669",
+  info = "#0284c7",
+  warning = "#d97706",
+  danger = "#dc2626",
+  dark = "#0f172a",
+  light = "#f8fafc",
+  base_font = font_google("Inter"),
+  heading_font = font_google("Poppins", wght = c(400, 600, 700)),
+  code_font = font_google("JetBrains Mono")
+)
+
+# 🖼️ UI ultra-moderne avec animations et effets
 ui <- page_navbar(
-  title = "Pyramide de Maslow - Communes françaises",
-  theme = bs_theme(
-    version = 5,
-    bootswatch = "flatly",
-    primary = "#2C3E50",
-    secondary = "#95A5A6",
-    success = "#27AE60",
-    info = "#3498DB",
-    warning = "#F39C12",
-    danger = "#E74C3C"
+  title = tags$div(
+    class = "navbar-brand-custom",
+    tags$div(
+      class = "brand-icon",
+      icon("mountain", class = "fa-2x")
+    ),
+    tags$div(
+      class = "brand-text",
+      tags$h4("Pyramide de Maslow", class = "mb-0"),
+      tags$small("Analyse des communes françaises", class = "text-muted")
+    )
   ),
+  theme = modern_theme,
+  fillable = TRUE,
+  id = "main_navbar",
   
-  # Onglet Carte
+  # 🗺️ ONGLET CARTE - Design premium
   nav_panel(
-    title = "🗺️ Carte Interactive",
+    title = tags$span(
+      icon("map-location-dot", class = "me-2"),
+      "Carte Interactive"
+    ),
+    value = "carte_tab",
+    
     layout_sidebar(
       sidebar = sidebar(
-        width = 300,
+        width = 350,
+        class = "sidebar-modern",
         
-        # Titre de la sidebar
-        h3("Paramètres", class = "text-primary"),
-        
-        # Sélecteur de niveau géographique
-        selectInput("niveau",
-                    "Niveau géographique :",
-                    choices = c("Communes" = "communes",
-                                "Départements" = "departements", 
-                                "Régions" = "regions"),
-                    selected = "communes"),
-        
-        hr(),
-        
-        # Légende des besoins avec style moderne
-        h4("Besoins de Maslow", class = "text-primary"),
-        div(class = "legend-container",
-            div(class = "legend-item",
-                span(class = "legend-color", style = "background-color: #66C2A5;"),
-                "Physiologique - 1"
-            ),
-            div(class = "legend-item",
-                span(class = "legend-color", style = "background-color: #FC8D62;"),
-                "Sécurité - 2"
-            ),
-            div(class = "legend-item",
-                span(class = "legend-color", style = "background-color: #8DA0CB;"),
-                "Appartenance - 3"
-            ),
-            div(class = "legend-item",
-                span(class = "legend-color", style = "background-color: #E78AC3;"),
-                "Estime - 4"
-            ),
-            div(class = "legend-item",
-                span(class = "legend-color", style = "background-color: #A6D854;"),
-                "Actualisation de soi - 5"
-            ),
-            div(class = "legend-item",
-                span(class = "legend-color", style = "background-color: #FFD92F;"),
-                "Cognitif - 6"
-            )
+        # Header du sidebar avec gradient
+        tags$div(
+          class = "sidebar-header",
+          tags$h3(
+            icon("sliders", class = "me-2"),
+            "Paramètres",
+            class = "sidebar-title"
+          )
         ),
         
-        hr(),
+        # Section niveau géographique
+        tags$div(
+          class = "control-section",
+          tags$div(
+            class = "section-title",
+            icon("globe", class = "me-2"),
+            "Niveau géographique"
+          ),
+          selectInput(
+            "niveau", 
+            NULL,
+            choices = list(
+              "🏘️ Communes" = "communes",
+              "🏛️ Départements" = "departements", 
+              "🌍 Régions" = "regions"
+            ),
+            selected = "communes"
+          )
+        ),
         
-        # Informations
-        div(class = "info-box",
-            h5("ℹ️ Information"),
-            p("Visualisation des besoins dominants selon la pyramide de Maslow pour les communes françaises de 10 à 20K habitants.")
+        tags$hr(class = "section-divider"),
+        
+        # Section légende Maslow avec design cards
+        tags$div(
+          class = "control-section",
+          tags$div(
+            class = "section-title",
+            icon("layer-group", class = "me-2"),
+            "Hiérarchie des besoins"
+          ),
+          tags$div(
+            class = "maslow-legend",
+            lapply(1:6, function(i) {
+              couleurs <- c("#10b981", "#f59e0b", "#8b5cf6", "#ef4444", "#06b6d4", "#84cc16")
+              noms <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation", "Cognitif")
+              icones <- c("utensils", "shield-alt", "users", "trophy", "star", "brain")
+              
+              tags$div(
+                class = "maslow-item",
+                tags$div(
+                  class = "maslow-level",
+                  style = paste0("background: linear-gradient(135deg, ", couleurs[i], ", ", couleurs[i], "aa);"),
+                  tags$i(class = paste("fas fa", icones[i]))
+                ),
+                tags$div(
+                  class = "maslow-info",
+                  tags$strong(paste("Niveau", i)),
+                  tags$br(),
+                  tags$span(noms[i], class = "maslow-name")
+                )
+              )
+            })
+          )
+        ),
+        
+        tags$hr(class = "section-divider"),
+        
+        # Info box moderne
+        tags$div(
+          class = "info-card",
+          tags$div(
+            class = "info-header",
+            icon("info-circle", class = "me-2"),
+            "À propos"
+          ),
+          tags$p(
+            "Cette visualisation présente les besoins dominants selon la pyramide de Maslow pour les territoires français.",
+            class = "info-text"
+          ),
+          tags$div(
+            class = "stats-mini",
+            tags$div(class = "stat-item", 
+                     tags$strong("35,000+"), 
+                     tags$br(), 
+                     tags$small("Communes")),
+            tags$div(class = "stat-item", 
+                     tags$strong("101"), 
+                     tags$br(), 
+                     tags$small("Départements")),
+            tags$div(class = "stat-item", 
+                     tags$strong("13"), 
+                     tags$br(), 
+                     tags$small("Régions"))
+          )
         )
       ),
       
-      # Contenu principal - Carte
-      card(
-        full_screen = TRUE,
-        card_header("Carte des besoins dominants"),
-        leafletOutput("carte", height = "700px")
-      )
-    )
-  ),
-  
-  # Onglet Tableau de données
-  nav_panel(
-    title = "📊 Données",
-    layout_columns(
-      col_widths = 12,
-      card(
-        full_screen = TRUE,
-        card_header(
-          "Tableau des données",
-          class = "bg-primary text-white"
-        ),
-        card_body(
-          div(
-            style = "margin-bottom: 15px;",
-            selectInput("niveau_table",
-                        "Niveau d'affichage :",
-                        choices = c("Communes" = "communes",
-                                    "Départements" = "departements", 
-                                    "Régions" = "regions"),
-                        selected = "communes",
-                        width = "300px")
+      # Zone principale avec carte
+      tags$div(
+        class = "main-content",
+        card(
+          full_screen = TRUE,
+          class = "map-card",
+          card_header(
+            class = "card-header-modern",
+            tags$div(
+              class = "d-flex align-items-center",
+              icon("map", class = "me-2 text-white"),
+              tags$div(
+                tags$h4("Cartographie des besoins dominants", class = "mb-0 text-white"),
+                tags$small("Cliquez sur les territoires pour plus d'informations", class = "text-white-50")
+              )
+            )
           ),
-          DTOutput("tableau")
+          card_body(
+            class = "p-0",
+            leafletOutput("carte", height = "750px")
+          )
         )
       )
     )
   ),
   
-  # CSS personnalisé
+  # 📊 ONGLET TABLEAU - Design data-focused
+  nav_panel(
+    title = tags$span(
+      icon("table", class = "me-2"),
+      "Données"
+    ),
+    value = "tableau_tab",
+    
+    tags$div(
+      class = "page-container",
+      
+      # Header de page
+      tags$div(
+        class = "page-header",
+        tags$h2(
+          icon("database", class = "me-3"),
+          "Exploration des données",
+          class = "page-title"
+        ),
+        tags$p("Analysez en détail les scores de chaque territoire", class = "page-subtitle")
+      ),
+      
+      # Controls et tableau
+      card(
+        class = "data-card",
+        card_header(
+          class = "card-header-modern",
+          tags$div(
+            class = "d-flex justify-content-between align-items-center",
+            tags$div(
+              icon("filter", class = "me-2"),
+              "Filtres et données"
+            ),
+            tags$div(
+              class = "level-selector",
+              selectInput(
+                "niveau_table", 
+                NULL,
+                choices = list(
+                  "🏘️ Communes" = "communes",
+                  "🏛️ Départements" = "departements", 
+                  "🌍 Régions" = "regions"
+                ),
+                selected = "communes",
+                width = "200px"
+              )
+            )
+          )
+        ),
+        card_body(
+          DTOutput("tableau", height = "600px")
+        )
+      )
+    )
+  ),
+  
+  # 📈 ONGLET ACP - Design analytique
+  nav_panel(
+    title = tags$span(
+      icon("chart-line", class = "me-2"),
+      "ACP"
+    ),
+    value = "acp_tab",
+    
+    layout_sidebar(
+      sidebar = sidebar(
+        width = 320,
+        class = "sidebar-modern sidebar-analytics",
+        
+        tags$div(
+          class = "sidebar-header",
+          tags$h3(
+            icon("microscope", class = "me-2"),
+            "Configuration ACP",
+            class = "sidebar-title"
+          )
+        ),
+        
+        # Paramètres ACP
+        tags$div(
+          class = "control-section",
+          tags$div(
+            class = "section-title",
+            icon("cogs", class = "me-2"),
+            "Paramètres d'analyse"
+          ),
+          
+          selectInput(
+            "niveau_acp", 
+            "Niveau d'agrégation :",
+            choices = list(
+              "🏘️ Communes" = "communes",
+              "🏛️ Départements" = "departements", 
+              "🌍 Régions" = "regions"
+            ),
+            selected = "communes"
+          ),
+          
+          tags$div(
+            class = "custom-checkbox",
+            checkboxInput("exclure_paris", "Exclure Paris de l'analyse", value = FALSE)
+          ),
+          
+          selectInput(
+            "type_viz", 
+            "Type de visualisation :",
+            choices = list(
+              "👥 Nuage d'individus (Dim 1-2)" = "ind_12",
+              "👥 Nuage d'individus (Dim 1-3)" = "ind_13",
+              "🎯 Cercle des corrélations" = "var_circle",
+              "📊 Valeurs propres" = "eigenvalues"
+            ),
+            selected = "ind_12"
+          )
+        ),
+        
+        tags$hr(class = "section-divider"),
+        
+        # Statistiques des clusters
+        tags$div(
+          class = "control-section",
+          tags$div(
+            class = "section-title",
+            icon("chart-pie", class = "me-2"),
+            "Statistiques clusters"
+          ),
+          tags$div(
+            class = "stats-output",
+            verbatimTextOutput("stats_clusters")
+          )
+        )
+      ),
+      
+      # Zone principale ACP
+      tags$div(
+        class = "main-content",
+        layout_columns(
+          col_widths = c(8, 4),
+          
+          # Graphique principal
+          card(
+            full_screen = TRUE,
+            class = "chart-card",
+            card_header(
+              class = "card-header-modern",
+              tags$div(
+                icon("chart-area", class = "me-2 text-primary"),
+                tags$h4("Analyse en Composantes Principales", class = "mb-0"),
+                tags$small("Exploration multidimensionnelle des données", class = "text-muted")
+              )
+            ),
+            card_body(
+              plotOutput("plot_acp", height = "550px")
+            )
+          ),
+          
+          # Résultats ANOVA
+          card(
+            class = "results-card",
+            card_header(
+              class = "card-header-modern",
+              icon("calculator", class = "me-2"),
+              "Test ANOVA"
+            ),
+            card_body(
+              verbatimTextOutput("anova_results")
+            )
+          )
+        )
+      )
+    )
+  ),
+  
+  # 🎨 CSS MODERNE ET PROFESSIONNEL
   tags$head(
     tags$style(HTML("
-      .legend-container {
-        margin-top: 10px;
+      /* Variables CSS pour cohérence */
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        --warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --border-radius: 12px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .legend-item {
+      
+      /* Body et layout général */
+      body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      
+      # Navigation moderne
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: var(--shadow-soft);
+        padding: 10px 0 !important;
+      }
+      
+      .navbar-nav {
+        align-items: center;
+      }
+      
+      .nav-link {
+        transition: var(--transition) !important;
+        font-weight: 500 !important;
+        padding: 8px 16px !important;
+        border-radius: 8px !important;
+        margin: 0 4px !important;
+      }
+      
+      .nav-link:hover {
+        transform: translateY(-1px);
+        background: rgba(99, 102, 241, 0.1) !important;
+      }
+      
+      .nav-link.active {
+        background: var(--primary-gradient) !important;
+        color: white !important;
+      }
+      
+      .navbar-brand-custom {
         display: flex;
         align-items: center;
-        margin-bottom: 8px;
-        padding: 5px;
-        border-radius: 5px;
-        background-color: #f8f9fa;
+        gap: 15px;
+        padding: 8px 0;
       }
-      .legend-color {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        margin-right: 10px;
-        border: 2px solid #fff;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      
+      .brand-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-gradient);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: var(--shadow-medium);
       }
-      .info-box {
-        background-color: #e3f2fd;
-        border-left: 4px solid #2196f3;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 10px;
+      
+      .brand-text h4 {
+        color: #1e293b;
+        font-weight: 700;
+        margin: 0;
       }
-      .info-box h5 {
-        margin-top: 0;
-        color: #1976d2;
+      
+      .brand-text small {
+        color: #64748b;
+        font-weight: 500;
       }
-      .navbar-brand {
-        font-weight: bold;
+      
+      /* Sidebar moderne */
+      .sidebar-modern {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(20px);
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: var(--shadow-large);
+        margin: 20px;
+        height: calc(100vh - 140px);
+        overflow-y: auto;
+      }
+      
+      .sidebar-header {
+        background: var(--primary-gradient);
+        margin: -16px -16px 20px -16px;
+        padding: 20px;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+      }
+      
+      .sidebar-title {
+        color: white;
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+      
+      /* Sections de contrôles */
+      .control-section {
+        margin-bottom: 25px;
+      }
+      
+      .section-title {
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 15px;
+        padding: 8px 12px;
+        background: rgba(99, 102, 241, 0.1);
+        border-radius: 8px;
+        font-size: 0.9rem;
+      }
+      
+      .section-divider {
+        border: none;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+        margin: 20px 0;
+      }
+      
+      /* Légende Maslow moderne */
+      .maslow-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .maslow-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: var(--transition);
+        cursor: pointer;
+      }
+      
+      .maslow-item:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+        background: rgba(255, 255, 255, 0.9);
+      }
+      
+      .maslow-level {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: var(--shadow-soft);
+      }
+      
+      .maslow-info strong {
+        color: #374151;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      
+      .maslow-name {
+        color: #6b7280;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      
+      /* Cards modernes */
+      .card {
+        border: none !important;
+        border-radius: var(--border-radius) !important;
+        box-shadow: var(--shadow-medium) !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(20px);
+        transition: var(--transition);
+      }
+      
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-large) !important;
+      }
+      
+      .card-header-modern {
+        background: var(--primary-gradient) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+        padding: 20px !important;
+      }
+      
+      .card-header-modern h4 {
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      
+      .card-header-modern small {
+        opacity: 0.9;
+      }
+      
+      /* Page headers */
+      .page-container {
+        padding: 30px;
+      }
+      
+      .page-header {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      
+      .page-title {
+        color: #1e293b;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      
+      .page-subtitle {
+        color: #64748b;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+      
+      /* Info card moderne */
+      .info-card {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        margin-top: 20px;
+      }
+      
+      .info-header {
+        font-weight: 600;
+        color: #1e40af;
+        margin-bottom: 12px;
+        font-size: 1rem;
+      }
+      
+      .info-text {
+        color: #475569;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      
+      .stats-mini {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+      }
+      
+      .stat-item {
+        text-align: center;
+        flex: 1;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+      }
+      
+      .stat-item strong {
+        color: #1e40af;
+        font-size: 1.1rem;
+      }
+      
+      /* Inputs modernes */
+      .form-select, .form-control {
+        border: 2px solid rgba(229, 231, 235, 0.8) !important;
+        border-radius: 10px !important;
+        padding: 12px 16px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        transition: var(--transition) !important;
+        font-weight: 500;
+      }
+      
+      .form-select:focus, .form-control:focus {
+        border-color: #6366f1 !important;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+        transform: translateY(-1px);
+      }
+      
+      /* Checkbox personnalisé */
+      .custom-checkbox {
+        margin: 15px 0;
+      }
+      
+      .form-check-input:checked {
+        background-color: #6366f1 !important;
+        border-color: #6366f1 !important;
+      }
+      
+      /* Stats output */
+      .stats-output pre {
+        background: rgba(15, 23, 42, 0.05) !important;
+        border: 1px solid rgba(226, 232, 240, 0.5) !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+        font-size: 0.85rem;
+        color: #374151;
+        line-height: 1.5;
+      }
+      
+      /* DataTable moderne */
+      .dataTables_wrapper {
+        font-family: 'Inter', sans-serif !important;
+        padding: 20px;
+      }
+      
+      .dataTables_wrapper .dataTables_length,
+      .dataTables_wrapper .dataTables_filter {
+        margin-bottom: 20px;
+      }
+      
+      .dataTables_wrapper .dataTables_length select,
+      .dataTables_wrapper .dataTables_filter input {
+        border: 2px solid rgba(229, 231, 235, 0.8) !important;
+        border-radius: 8px !important;
+        padding: 8px 12px !important;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.9) !important;
+      }
+      
+      .dataTables_wrapper .dataTables_length label,
+      .dataTables_wrapper .dataTables_filter label {
+        font-weight: 500;
+        color: #374151;
+      }
+      
+      table.dataTable {
+        border-radius: var(--border-radius) !important;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+      }
+      
+      table.dataTable thead th {
+        background: var(--primary-gradient) !important;
+        color: white !important;
+        border: none !important;
+        font-weight: 600;
+        padding: 15px 12px !important;
+        text-align: center;
+      }
+      
+      table.dataTable tbody td {
+        padding: 12px !important;
+        vertical-align: middle;
+        border-bottom: 1px solid rgba(229, 231, 235, 0.5) !important;
+      }
+      
+      table.dataTable tbody tr:hover {
+        background: rgba(99, 102, 241, 0.05) !important;
+      }
+      
+      table.dataTable tbody tr:nth-child(even) {
+        background: rgba(248, 250, 252, 0.5);
+      }
+      
+      /* Animations et transitions */
+      .nav-item {
+        margin: 0 2px;
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+        .navbar-brand-custom {
+          flex-direction: column;
+          gap: 8px;
+        }
+        
+        .brand-icon {
+          width: 40px;
+          height: 40px;
+        }
+        
+        .sidebar-modern {
+          margin: 10px;
+          height: auto;
+        }
+        
+        .page-container {
+          padding: 15px;
+        }
+        
+        .stats-mini {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+      
+      /* Scrollbar personnalisée */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: rgba(241, 245, 249, 0.5);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
       }
     "))
   )
 )
+# 🔧 Fonctions utilitaires
+load_data <- function() {
+  colonnes <- c("ID", "REG", "Région", "DEP", "CODARR", "CODCAN", "CODCOM", "COM", "Commune", 
+                "PMUN", "PCAP", "PTOT", "Physiologique", "Sécurité", "Appartenance", 
+                "Estime", "Actualisation.de.soi", "Cognitif", "latitude", "longitude")
+  
+  read_delim("CommunesGeo.csv", delim = ";", col_names = colonnes,
+             locale = locale(encoding = "UTF-8"), skip = 1, show_col_types = FALSE) %>%
+    mutate(
+      DEP = str_pad(as.character(DEP), 2, pad = "0"),
+      CODCOM = str_pad(as.character(CODCOM), 3, pad = "0"),
+      INSEE_COM = paste0(DEP, CODCOM),
+      INSEE_COM = str_replace_all(INSEE_COM, "[[:space:]]", ""),
+      REG = as.character(REG), DEP = as.character(DEP)
+    )
+}
+
+calc_dominant_need <- function(data) {
+  besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
+  data %>%
+    rowwise() %>%
+    mutate(besoin_dominant = if (all(is.na(c_across(all_of(besoins))))) NA_character_ 
+           else besoins[which.max(c_across(all_of(besoins)))]) %>%
+    ungroup()
+}
+
+aggregate_data <- function(data, level, exclure_paris = FALSE) {
+  if (exclure_paris) {
+    data <- data %>% filter(!str_detect(Commune, "Paris"))
+  }
+  
+  if (level == "communes") return(data)
+  
+  group_var <- if (level == "departements") "DEP" else "REG"
+  
+  data %>%
+    group_by(!!sym(group_var)) %>%
+    summarise(
+      across(c(Physiologique, `Sécurité`, Appartenance, Estime, `Actualisation.de.soi`, Cognitif, PTOT), 
+             ~ mean(.x, na.rm = TRUE)),
+      .groups = 'drop'
+    ) %>%
+    rename(!!sym(if (level == "departements") "code" else "code") := !!sym(group_var))
+}
 
 # 🖥️ Serveur
 server <- function(input, output, session) {
   
-  # 📊 Chargement et préparation des données
+  # Données de base
+  base_data <- reactive({ load_data() })
+  
+  # Données pour la carte
   donnees_reactives <- reactive({
+    communes_geo <- base_data()
     
-    # Définir les noms de colonnes pour CommunesGeo.csv (avec ID ajouté)
-    colonnes_maslow <- c(
-      "ID", "REG", "Région", "DEP", "CODARR", "CODCAN", "CODCOM", "COM", "Commune", 
-      "PMUN", "PCAP", "PTOT", "Physiologique", "Sécurité", "Appartenance", 
-      "Estime", "Actualisation.de.soi", "Cognitif", "latitude", "longitude"
-    )
-    
-    # Lecture du fichier CSV (délimiteur point-virgule selon l'erreur)
-    communes_geo <- read_delim("CommunesGeo.csv", 
-                               delim = ";", 
-                               col_names = colonnes_maslow,
-                               locale = locale(encoding = "UTF-8"),
-                               skip = 1,
-                               show_col_types = FALSE)
-    
-    # Création du code INSEE propre
-    communes_geo <- communes_geo %>%
-      mutate(
-        DEP = str_pad(as.character(DEP), 2, pad = "0"),
-        CODCOM = str_pad(as.character(CODCOM), 3, pad = "0"),
-        INSEE_COM = paste0(DEP, CODCOM),
-        INSEE_COM = str_replace_all(INSEE_COM, "[[:space:]]", ""),
-        REG = as.character(REG),  # Conversion en caractère pour les jointures
-        DEP = as.character(DEP)   # Conversion en caractère pour les jointures
-      )
-    
-    # Chargement des données géographiques selon le niveau sélectionné
     if (input$niveau == "communes") {
       donnees_geo <- readRDS("communes_simplified.rds") %>%
         mutate(INSEE_COM = str_trim(as.character(INSEE_COM)),
                INSEE_COM = str_replace_all(INSEE_COM, "[[:space:]]", ""))
       
-      # Jointure avec les données Maslow
       donnees_finales <- donnees_geo %>%
-        left_join(communes_geo, by = "INSEE_COM")
+        left_join(communes_geo, by = "INSEE_COM") %>%
+        calc_dominant_need()
+    } else {
+      geo_file <- paste0(input$niveau, "_simplified.rds")
+      donnees_geo <- readRDS(geo_file) %>% mutate(code = as.character(code))
       
-      # Calcul du besoin dominant
-      besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
-      
-      donnees_finales <- donnees_finales %>%
-        rowwise() %>%
-        mutate(
-          besoin_dominant = if (all(is.na(c_across(all_of(besoins))))) {
-            NA_character_
-          } else {
-            besoins[which.max(c_across(all_of(besoins)))]
-          }
-        ) %>%
-        ungroup()
-      
-    } else if (input$niveau == "departements") {
-      donnees_geo <- readRDS("departements_simplified.rds")
-      
-      # Agrégation des données au niveau départemental
-      agg_dep <- communes_geo %>%
-        group_by(DEP) %>%
-        summarise(
-          Physiologique = mean(Physiologique, na.rm = TRUE),
-          Sécurité = mean(Sécurité, na.rm = TRUE),
-          Appartenance = mean(Appartenance, na.rm = TRUE),
-          Estime = mean(Estime, na.rm = TRUE),
-          Actualisation.de.soi = mean(`Actualisation.de.soi`, na.rm = TRUE),
-          Cognitif = mean(Cognitif, na.rm = TRUE),
-          .groups = 'drop'
-        ) %>%
-        mutate(DEP = as.character(DEP))  # S'assurer que c'est en caractère
-      
-      # Jointure (s'assurer que les types correspondent)
-      donnees_geo <- donnees_geo %>%
-        mutate(code = as.character(code))
-      
+      agg_data <- aggregate_data(communes_geo, input$niveau)
       donnees_finales <- donnees_geo %>%
-        left_join(agg_dep, by = c("code" = "DEP"))
-      
-      # Calcul du besoin dominant
-      besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
-      
-      donnees_finales <- donnees_finales %>%
-        rowwise() %>%
-        mutate(
-          besoin_dominant = if (all(is.na(c_across(all_of(besoins))))) {
-            NA_character_
-          } else {
-            besoins[which.max(c_across(all_of(besoins)))]
-          }
-        ) %>%
-        ungroup()
-      
-    } else { # régions
-      donnees_geo <- readRDS("regions_simplified.rds")
-      
-      # Agrégation des données au niveau régional
-      agg_reg <- communes_geo %>%
-        group_by(REG) %>%
-        summarise(
-          Physiologique = mean(Physiologique, na.rm = TRUE),
-          Sécurité = mean(Sécurité, na.rm = TRUE),
-          Appartenance = mean(Appartenance, na.rm = TRUE),
-          Estime = mean(Estime, na.rm = TRUE),
-          Actualisation.de.soi = mean(`Actualisation.de.soi`, na.rm = TRUE),
-          Cognitif = mean(Cognitif, na.rm = TRUE),
-          .groups = 'drop'
-        ) %>%
-        mutate(REG = as.character(REG))  # S'assurer que c'est en caractère
-      
-      # Jointure (s'assurer que les types correspondent)
-      donnees_geo <- donnees_geo %>%
-        mutate(code = as.character(code))
-      
-      donnees_finales <- donnees_geo %>%
-        left_join(agg_reg, by = c("code" = "REG"))
-      
-      # Calcul du besoin dominant
-      besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
-      
-      donnees_finales <- donnees_finales %>%
-        rowwise() %>%
-        mutate(
-          besoin_dominant = if (all(is.na(c_across(all_of(besoins))))) {
-            NA_character_
-          } else {
-            besoins[which.max(c_across(all_of(besoins)))]
-          }
-        ) %>%
-        ungroup()
+        left_join(agg_data, by = "code") %>%
+        calc_dominant_need()
     }
     
     return(donnees_finales)
   })
   
-  # 📊 Données pour le tableau (réactive séparée)
+  # Données pour le tableau
   donnees_tableau <- reactive({
+    communes_geo <- base_data() %>% calc_dominant_need()
     
-    # Définir les noms de colonnes pour CommunesGeo.csv (avec ID ajouté)
-    colonnes_maslow <- c(
-      "ID", "REG", "Région", "DEP", "CODARR", "CODCAN", "CODCOM", "COM", "Commune", 
-      "PMUN", "PCAP", "PTOT", "Physiologique", "Sécurité", "Appartenance", 
-      "Estime", "Actualisation.de.soi", "Cognitif", "latitude", "longitude"
-    )
-    
-    # Lecture du fichier CSV
-    communes_geo <- read_delim("CommunesGeo.csv", 
-                               delim = ";", 
-                               col_names = colonnes_maslow,
-                               locale = locale(encoding = "UTF-8"),
-                               skip = 1,
-                               show_col_types = FALSE)
-    
-    # Création du code INSEE propre
-    communes_geo <- communes_geo %>%
-      mutate(
-        DEP = str_pad(as.character(DEP), 2, pad = "0"),
-        CODCOM = str_pad(as.character(CODCOM), 3, pad = "0"),
-        INSEE_COM = paste0(DEP, CODCOM),
-        INSEE_COM = str_replace_all(INSEE_COM, "[[:space:]]", ""),
-        REG = as.character(REG),
-        DEP = as.character(DEP)
-      )
-    
-    # Calcul du besoin dominant
-    besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
-    
-    communes_geo <- communes_geo %>%
-      rowwise() %>%
-      mutate(
-        besoin_dominant = if (all(is.na(c_across(all_of(besoins))))) {
-          NA_character_
-        } else {
-          besoins[which.max(c_across(all_of(besoins)))]
-        }
-      ) %>%
-      ungroup()
-    
-    # Préparation selon le niveau
     if (input$niveau_table == "communes") {
-      tableau <- communes_geo %>%
-        select(Commune, DEP, Région, Physiologique, Sécurité, Appartenance, 
+      communes_geo %>%
+        select(Commune, DEP, Région, Physiologique, `Sécurité`, Appartenance, 
                Estime, `Actualisation.de.soi`, Cognitif, besoin_dominant) %>%
-        rename(
-          `Commune` = Commune,
-          `Département` = DEP,
-          `Région` = Région,
-          `Actualisation de soi` = `Actualisation.de.soi`,
-          `Besoin dominant` = besoin_dominant
-        )
-    } else if (input$niveau_table == "departements") {
-      tableau <- communes_geo %>%
-        group_by(DEP, Région) %>%
-        summarise(
-          Physiologique = round(mean(Physiologique, na.rm = TRUE), 2),
-          Sécurité = round(mean(Sécurité, na.rm = TRUE), 2),
-          Appartenance = round(mean(Appartenance, na.rm = TRUE), 2),
-          Estime = round(mean(Estime, na.rm = TRUE), 2),
-          `Actualisation de soi` = round(mean(`Actualisation.de.soi`, na.rm = TRUE), 2),
-          Cognitif = round(mean(Cognitif, na.rm = TRUE), 2),
-          .groups = 'drop'
-        ) %>%
-        rowwise() %>%
-        mutate(
-          `Besoin dominant` = if (all(is.na(c_across(c(Physiologique, Sécurité, Appartenance, Estime, `Actualisation de soi`, Cognitif))))) {
-            NA_character_
-          } else {
-            c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation de soi", "Cognitif")[which.max(c_across(c(Physiologique, Sécurité, Appartenance, Estime, `Actualisation de soi`, Cognitif)))]
-          }
-        ) %>%
-        ungroup() %>%
-        rename(`Département` = DEP)
-    } else { # régions
-      tableau <- communes_geo %>%
-        group_by(REG, Région) %>%
-        summarise(
-          Physiologique = round(mean(Physiologique, na.rm = TRUE), 2),
-          Sécurité = round(mean(Sécurité, na.rm = TRUE), 2),
-          Appartenance = round(mean(Appartenance, na.rm = TRUE), 2),
-          Estime = round(mean(Estime, na.rm = TRUE), 2),
-          `Actualisation de soi` = round(mean(`Actualisation.de.soi`, na.rm = TRUE), 2),
-          Cognitif = round(mean(Cognitif, na.rm = TRUE), 2),
-          .groups = 'drop'
-        ) %>%
-        rowwise() %>%
-        mutate(
-          `Besoin dominant` = if (all(is.na(c_across(c(Physiologique, Sécurité, Appartenance, Estime, `Actualisation de soi`, Cognitif))))) {
-            NA_character_
-          } else {
-            c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation de soi", "Cognitif")[which.max(c_across(c(Physiologique, Sécurité, Appartenance, Estime, `Actualisation de soi`, Cognitif)))]
-          }
-        ) %>%
-        ungroup() %>%
-        select(-REG)
+        rename(`Département` = DEP, `Actualisation de soi` = `Actualisation.de.soi`, 
+               `Besoin dominant` = besoin_dominant)
+    } else {
+      group_var <- if (input$niveau_table == "departements") c("DEP", "Région") else c("REG", "Région")
+      
+      communes_geo %>%
+        group_by(across(all_of(group_var))) %>%
+        summarise(across(c(Physiologique, `Sécurité`, Appartenance, Estime, `Actualisation.de.soi`, Cognitif), 
+                         ~ round(mean(.x, na.rm = TRUE), 2)), .groups = 'drop') %>%
+        calc_dominant_need() %>%
+        rename(`Actualisation de soi` = `Actualisation.de.soi`, `Besoin dominant` = besoin_dominant)
     }
-    
-    return(tableau)
   })
   
-  # 🗺️ Rendu de la carte
-  output$carte <- renderLeaflet({
+  # Données pour l'ACP
+  donnees_acp <- reactive({
+    donnees <- base_data()
     
-    donnees <- donnees_reactives()
+    # Normalisation des noms de colonnes pour l'ACP
+    donnees <- donnees %>%
+      rename(
+        Securite = `Sécurité`, 
+        Actualisationdesoi = `Actualisation.de.soi`
+      )
     
-    # Définition des besoins avec numérotation
-    besoins_complets <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
-    
-    # Palette de couleurs
-    pal <- colorFactor(
-      palette = c("#66C2A5", "#FC8D62", "#8DA0CB", "#E78AC3", "#A6D854", "#FFD92F"),
-      domain = besoins_complets
-    )
-    
-    # Création du label selon le niveau
-    if (input$niveau == "communes") {
-      label_text <- ~paste0(NOM, " — ", besoin_dominant)
-    } else {
-      label_text <- ~paste0(nom, " — ", besoin_dominant)
+    # Filtrage Paris si demandé
+    if (input$exclure_paris) {
+      donnees <- donnees %>% filter(!str_detect(Commune, "Paris"))
     }
     
-    # Création de la carte
+    # Agrégation selon le niveau
+    if (input$niveau_acp == "departements") {
+      donnees <- donnees %>%
+        group_by(DEP) %>%
+        summarise(
+          across(c(Physiologique, Securite, Appartenance, Estime, Actualisationdesoi, Cognitif, PTOT), 
+                 ~ mean(.x, na.rm = TRUE)),
+          .groups = 'drop'
+        ) %>%
+        mutate(code = DEP)
+    } else if (input$niveau_acp == "regions") {
+      donnees <- donnees %>%
+        group_by(REG) %>%
+        summarise(
+          across(c(Physiologique, Securite, Appartenance, Estime, Actualisationdesoi, Cognitif, PTOT), 
+                 ~ mean(.x, na.rm = TRUE)),
+          .groups = 'drop'
+        ) %>%
+        mutate(code = REG)
+    }
+    
+    # Calcul des proportions
+    donnees_prop <- donnees %>%
+      mutate(
+        total_maslow = Physiologique + Securite + Appartenance + Estime + Actualisationdesoi + Cognitif,
+        across(c(Physiologique, Securite, Appartenance, Estime, Actualisationdesoi, Cognitif), 
+               ~ .x / total_maslow, .names = "prop_{.col}")
+      )
+    
+    # Préparation des données pour l'ACP
+    maslow_data <- donnees_prop %>%
+      select(starts_with("prop_")) %>%
+      rename_with(~ str_remove(.x, "prop_")) %>%
+      rename(
+        `actualisation de soi` = Actualisationdesoi, 
+        sécurité = Securite, 
+        physiologique = Physiologique, 
+        appartenance = Appartenance, 
+        estime = Estime, 
+        cognitif = Cognitif
+      ) %>%
+      filter(complete.cases(.))
+    
+    # Vérification qu'il y a assez de données
+    if(nrow(maslow_data) < 3) {
+      return(NULL)
+    }
+    
+    # ACP
+    res_acp <- PCA(maslow_data, graph = FALSE)
+    res_hcpc <- HCPC(res_acp, graph = FALSE)
+    
+    donnees_finales <- cbind(donnees_prop[complete.cases(maslow_data), ], 
+                             cluster = as.factor(res_hcpc$data.clust$clust))
+    
+    list(donnees = donnees_finales, acp = res_acp, hcpc = res_hcpc)
+  })
+  
+  # Rendu carte
+  output$carte <- renderLeaflet({
+    donnees <- donnees_reactives()
+    besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
+    pal <- colorFactor(palette = c("#66C2A5", "#FC8D62", "#8DA0CB", "#E78AC3", "#A6D854", "#FFD92F"), 
+                       domain = besoins)
+    
+    label_text <- if (input$niveau == "communes") ~paste0(NOM, " — ", besoin_dominant) 
+    else ~paste0(nom, " — ", besoin_dominant)
+    
     leaflet(donnees) %>%
       addProviderTiles(providers$CartoDB.Positron) %>%
-      addPolygons(
-        fillColor = ~pal(besoin_dominant),
-        weight = 0.5,
-        opacity = 1,
-        color = "white",
-        dashArray = "3",
-        fillOpacity = 0.8,
-        label = label_text,
-        highlightOptions = highlightOptions(
-          weight = 2,
-          color = "#666",
-          fillOpacity = 0.9,
-          bringToFront = TRUE
-        )
-      ) %>%
-      addLegend(
-        pal = pal,
-        values = ~besoin_dominant,
-        title = "Besoin dominant",
-        opacity = 1,
-        position = "bottomright"
-      ) %>%
+      addPolygons(fillColor = ~pal(besoin_dominant), weight = 0.5, opacity = 1, color = "white",
+                  dashArray = "3", fillOpacity = 0.8, label = label_text,
+                  highlightOptions = highlightOptions(weight = 2, color = "#666", fillOpacity = 0.9, bringToFront = TRUE)) %>%
+      addLegend(pal = pal, values = ~besoin_dominant, title = "Besoin dominant", opacity = 1, position = "bottomright") %>%
       setView(lng = 2.3, lat = 46.6, zoom = 6)
   })
   
-  # 📊 Rendu du tableau
+  # Rendu tableau
   output$tableau <- renderDT({
-    datatable(
-      donnees_tableau(),
-      options = list(
-        pageLength = 25,
-        scrollX = TRUE,
-        dom = 'Bfrtip',
-        buttons = c('copy', 'csv', 'excel'),
-        language = list(
-          url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/French.json'
-        )
-      ),
-      extensions = 'Buttons',
-      class = 'cell-border stripe hover',
-      rownames = FALSE
-    ) %>%
-      formatStyle(
-        'Besoin dominant',
-        backgroundColor = styleEqual(
-          c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation de soi", "Cognitif"),
-          c("#66C2A5", "#FC8D62", "#8DA0CB", "#E78AC3", "#A6D854", "#FFD92F")
-        ),
-        color = 'white',
-        fontWeight = 'bold'
-      )
+    datatable(donnees_tableau(), options = list(pageLength = 25, scrollX = TRUE, dom = 'Bfrtip',
+                                                buttons = c('copy', 'csv', 'excel'),
+                                                language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/French.json')),
+              extensions = 'Buttons', class = 'cell-border stripe hover', rownames = FALSE) %>%
+      formatStyle('Besoin dominant', 
+                  backgroundColor = styleEqual(c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation de soi", "Cognitif"),
+                                               c("#66C2A5", "#FC8D62", "#8DA0CB", "#E78AC3", "#A6D854", "#FFD92F")),
+                  color = 'white', fontWeight = 'bold')
+  })
+  
+  # Rendu ACP
+  output$plot_acp <- renderPlot({
+    acp_data <- donnees_acp()
+    
+    if(is.null(acp_data)) {
+      plot.new()
+      text(0.5, 0.5, "Données insuffisantes pour l'ACP", cex = 1.5)
+      return()
+    }
+    
+    show_labels <- input$niveau_acp != "communes"
+    
+    switch(input$type_viz,
+           "ind_12" = fviz_pca_ind(acp_data$acp, axes = c(1, 2), col.ind = acp_data$donnees$cluster,
+                                   palette = "jco", repel = show_labels, labelsize = if(show_labels) 3 else 0) +
+             ggtitle("ACP - Dimension 1 et 2") + theme_minimal(),
+           
+           "ind_13" = fviz_pca_ind(acp_data$acp, axes = c(1, 3), col.ind = acp_data$donnees$cluster,
+                                   palette = "jco", repel = show_labels, labelsize = if(show_labels) 3 else 0) +
+             ggtitle("ACP - Dimension 1 et 3") + theme_minimal(),
+           
+           "var_circle" = fviz_pca_var(acp_data$acp, axes = c(1, 2), col.var = "contrib",
+                                       gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE) +
+             ggtitle("Cercle des corrélations") + theme_minimal(),
+           
+           "eigenvalues" = fviz_eig(acp_data$acp, addlabels = TRUE, barfill = "#0073C2FF",
+                                    barcolor = "#0073C2FF", linecolor = "black") +
+             ggtitle("Contribution des dimensions") + theme_minimal()
+    )
+  })
+  
+  # Statistiques clusters
+  output$stats_clusters <- renderText({
+    acp_data <- donnees_acp()
+    
+    if(is.null(acp_data)) {
+      return("Données insuffisantes pour l'analyse")
+    }
+    
+    moyennes_pop <- acp_data$donnees %>%
+      group_by(cluster) %>%
+      summarise(effectif = n(), 
+                moyenne_PTOT = round(mean(PTOT, na.rm = TRUE), 0),
+                mediane_PTOT = round(median(PTOT, na.rm = TRUE), 0), 
+                .groups = 'drop')
+    
+    output_text <- paste("Clusters:", max(as.numeric(as.character(acp_data$donnees$cluster))), "\n\n")
+    for (i in 1:nrow(moyennes_pop)) {
+      output_text <- paste0(output_text, "Cluster ", moyennes_pop$cluster[i], ":\n",
+                            "  Effectif: ", moyennes_pop$effectif[i], "\n",
+                            "  Pop. moy: ", format(moyennes_pop$moyenne_PTOT[i], big.mark = " "), "\n\n")
+    }
+    output_text
+  })
+  
+  # ANOVA
+  output$anova_results <- renderPrint({
+    acp_data <- donnees_acp()
+    
+    if(is.null(acp_data)) {
+      cat("Données insuffisantes pour l'ANOVA")
+      return()
+    }
+    
+    modele <- aov(PTOT ~ cluster, data = acp_data$donnees)
+    summary(modele)
   })
 }
 
-# 🚀 Lancement de l'application
+# 🚀 Lancement
 shinyApp(ui = ui, server = server)
