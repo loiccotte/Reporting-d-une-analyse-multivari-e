@@ -10,6 +10,8 @@ library(RColorBrewer)
 library(FactoMineR)
 library(factoextra)
 library(ggplot2)
+library(plotly)
+
 
 # 🎨 Thème UI ultra-moderne
 modern_theme <- bs_theme(
@@ -285,20 +287,27 @@ ui <- page_navbar(
             checkboxInput("exclure_paris", "Exclure Paris de l'analyse", value = FALSE)
           ),
           
-          selectInput(
-            "type_viz", 
-            "Type de visualisation :",
-            choices = list(
-              "👥 Nuage d'individus (Dim 1-2)" = "ind_12",
-              "👥 Nuage d'individus (Dim 1-3)" = "ind_13",
-              "🎯 Cercle des corrélations" = "var_circle",
-              "📊 Valeurs propres" = "eigenvalues"
-            ),
-            selected = "ind_12"
+          selectInput("type_viz", "Type de visualisation :",
+                      choices = c(
+                        "ACP Individus (Dim 1-2)" = "ind_12",
+                        "ACP Individus (Dim 1-3)" = "ind_13",
+                        "Cercle des corrélations (1-2)" = "var_circle",
+                        "Cercle des corrélations (1-3)" = "var_circle13",
+                        "Contribution des dimensions" = "eigenvalues"),
+                      selected = "ind_12"),
+          
+        ),
+        
+        # Case pour afficher ou non les labels (communes, départements, régions)
+        conditionalPanel(
+          condition = "input.type_viz.includes('ind_')",
+          tags$div(
+            class = "custom-checkbox",
+            checkboxInput("show_labels", "Afficher les étiquettes", value = TRUE)
           )
         ),
         
-        tags$hr(class = "section-divider"),
+        
         
         # Statistiques des clusters
         tags$div(
@@ -334,22 +343,13 @@ ui <- page_navbar(
               )
             ),
             card_body(
-              plotOutput("plot_acp", height = "550px")
+              uiOutput("acp_plot_ui")
+              
+              
             )
           ),
           
-          # Résultats ANOVA
-          card(
-            class = "results-card",
-            card_header(
-              class = "card-header-modern",
-              icon("calculator", class = "me-2"),
-              "Test ANOVA"
-            ),
-            card_body(
-              verbatimTextOutput("anova_results")
-            )
-          )
+         
         )
       )
     )
@@ -774,53 +774,54 @@ ui <- page_navbar(
     "))
   )
 )
-# 🔧 Fonctions utilitaires
-load_data <- function() {
-  colonnes <- c("ID", "REG", "Région", "DEP", "CODARR", "CODCAN", "CODCOM", "COM", "Commune", 
-                "PMUN", "PCAP", "PTOT", "Physiologique", "Sécurité", "Appartenance", 
-                "Estime", "Actualisation.de.soi", "Cognitif", "latitude", "longitude")
-  
-  read_delim("CommunesGeo.csv", delim = ";", col_names = colonnes,
-             locale = locale(encoding = "UTF-8"), skip = 1, show_col_types = FALSE) %>%
-    mutate(
-      DEP = str_pad(as.character(DEP), 2, pad = "0"),
-      CODCOM = str_pad(as.character(CODCOM), 3, pad = "0"),
-      INSEE_COM = paste0(DEP, CODCOM),
-      INSEE_COM = str_replace_all(INSEE_COM, "[[:space:]]", ""),
-      REG = as.character(REG), DEP = as.character(DEP)
-    )
-}
 
-calc_dominant_need <- function(data) {
-  besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
-  data %>%
-    rowwise() %>%
-    mutate(besoin_dominant = if (all(is.na(c_across(all_of(besoins))))) NA_character_ 
-           else besoins[which.max(c_across(all_of(besoins)))]) %>%
-    ungroup()
-}
-
-aggregate_data <- function(data, level, exclure_paris = FALSE) {
-  if (exclure_paris) {
-    data <- data %>% filter(!str_detect(Commune, "Paris"))
-  }
-  
-  if (level == "communes") return(data)
-  
-  group_var <- if (level == "departements") "DEP" else "REG"
-  
-  data %>%
-    group_by(!!sym(group_var)) %>%
-    summarise(
-      across(c(Physiologique, `Sécurité`, Appartenance, Estime, `Actualisation.de.soi`, Cognitif, PTOT), 
-             ~ mean(.x, na.rm = TRUE)),
-      .groups = 'drop'
-    ) %>%
-    rename(!!sym(if (level == "departements") "code" else "code") := !!sym(group_var))
-}
 
 # 🖥️ Serveur
 server <- function(input, output, session) {
+  # 🔧 Fonctions utilitaires
+  load_data <- function() {
+    colonnes <- c("ID", "REG", "Région", "DEP", "CODARR", "CODCAN", "CODCOM", "COM", "Commune", 
+                  "PMUN", "PCAP", "PTOT", "Physiologique", "Sécurité", "Appartenance", 
+                  "Estime", "Actualisation.de.soi", "Cognitif", "latitude", "longitude")
+    
+    read_delim("CommunesGeo.csv", delim = ";", col_names = colonnes,
+               locale = locale(encoding = "UTF-8"), skip = 1, show_col_types = FALSE) %>%
+      mutate(
+        DEP = str_pad(as.character(DEP), 2, pad = "0"),
+        CODCOM = str_pad(as.character(CODCOM), 3, pad = "0"),
+        INSEE_COM = paste0(DEP, CODCOM),
+        INSEE_COM = str_replace_all(INSEE_COM, "[[:space:]]", ""),
+        REG = as.character(REG), DEP = as.character(DEP)
+      )
+  }
+  
+  calc_dominant_need <- function(data) {
+    besoins <- c("Physiologique", "Sécurité", "Appartenance", "Estime", "Actualisation.de.soi", "Cognitif")
+    data %>%
+      rowwise() %>%
+      mutate(besoin_dominant = if (all(is.na(c_across(all_of(besoins))))) NA_character_ 
+             else besoins[which.max(c_across(all_of(besoins)))]) %>%
+      ungroup()
+  }
+  
+  aggregate_data <- function(data, level, exclure_paris = FALSE) {
+    if (exclure_paris) {
+      data <- data %>% filter(!str_detect(Commune, "Paris"))
+    }
+    
+    if (level == "communes") return(data)
+    
+    group_var <- if (level == "departements") "DEP" else "REG"
+    
+    data %>%
+      group_by(!!sym(group_var)) %>%
+      summarise(
+        across(c(Physiologique, `Sécurité`, Appartenance, Estime, `Actualisation.de.soi`, Cognitif, PTOT), 
+               ~ mean(.x, na.rm = TRUE)),
+        .groups = 'drop'
+      ) %>%
+      rename(!!sym(if (level == "departements") "code" else "code") := !!sym(group_var))
+  }
   
   # Données de base
   base_data <- reactive({ load_data() })
@@ -900,13 +901,14 @@ server <- function(input, output, session) {
         mutate(code = DEP)
     } else if (input$niveau_acp == "regions") {
       donnees <- donnees %>%
-        group_by(REG) %>%
+        group_by(REG, Région) %>%  # Conserver le nom
         summarise(
           across(c(Physiologique, Securite, Appartenance, Estime, Actualisationdesoi, Cognitif, PTOT), 
                  ~ mean(.x, na.rm = TRUE)),
           .groups = 'drop'
         ) %>%
         mutate(code = REG)
+      
     }
     
     # Calcul des proportions
@@ -977,36 +979,71 @@ server <- function(input, output, session) {
                   color = 'white', fontWeight = 'bold')
   })
   
-  # Rendu ACP
-  output$plot_acp <- renderPlot({
+  
+  
+  output$acp_plot_ui <- renderUI({
+    if (grepl("^ind_", input$type_viz)) {
+      plotlyOutput("plot_acp_plotly", height = "650px")
+    } else {
+      plotOutput("plot_acp_static", height = "650px")
+    }
+  })
+  output$plot_acp_plotly <- renderPlotly({
     acp_data <- donnees_acp()
+    if (is.null(acp_data)) return(NULL)
     
-    if(is.null(acp_data)) {
+    labels <- NULL
+    if (input$niveau_acp == "departements") labels <- acp_data$donnees$DEP
+    if (input$niveau_acp == "regions") labels <- acp_data$donnees$Région
+    
+    plot_base <- switch(input$type_viz,
+                        "ind_12" = fviz_pca_ind(acp_data$acp, axes = c(1, 2), col.ind = acp_data$donnees$cluster,
+                                                label = "none", geom = "point", repel = TRUE) +
+                          ggtitle("ACP - Dimension 1 et 2") + theme_minimal(),
+                        "ind_13" = fviz_pca_ind(acp_data$acp, axes = c(1, 3), col.ind = acp_data$donnees$cluster,
+                                                label = "none", geom = "point", repel = TRUE) +
+                          ggtitle("ACP - Dimension 1 et 3") + theme_minimal(),
+                        "ind_23" = fviz_pca_ind(acp_data$acp, axes = c(2, 3), col.ind = acp_data$donnees$cluster,
+                                                label = "none", geom = "point", repel = TRUE) +
+                          ggtitle("ACP - Dimension 2 et 3") + theme_minimal()
+    )
+    
+    if (!is.null(labels) && isTRUE(input$show_labels)) {
+      coords <- as.data.frame(acp_data$acp$ind$coord)
+      axes <- switch(input$type_viz,
+                     "ind_12" = c("Dim.1", "Dim.2"),
+                     "ind_13" = c("Dim.1", "Dim.3"),
+                     "ind_23" = c("Dim.2", "Dim.3"))
+      coords$label <- labels
+      plot_base <- plot_base +
+        geom_text(data = coords, aes_string(x = axes[1], y = axes[2], label = "label"),
+                  vjust = -0.5, size = 3, inherit.aes = FALSE)
+    }
+    
+    
+    ggplotly(plot_base)
+  })
+  output$plot_acp_static <- renderPlot({
+    acp_data <- donnees_acp()
+    if (is.null(acp_data)) {
       plot.new()
-      text(0.5, 0.5, "Données insuffisantes pour l'ACP", cex = 1.5)
+      text(0.5, 0.5, "Données insuffisantes", cex = 1.5)
       return()
     }
     
-    show_labels <- input$niveau_acp != "communes"
-    
     switch(input$type_viz,
-           "ind_12" = fviz_pca_ind(acp_data$acp, axes = c(1, 2), col.ind = acp_data$donnees$cluster,
-                                   palette = "jco", repel = show_labels, labelsize = if(show_labels) 3 else 0) +
-             ggtitle("ACP - Dimension 1 et 2") + theme_minimal(),
-           
-           "ind_13" = fviz_pca_ind(acp_data$acp, axes = c(1, 3), col.ind = acp_data$donnees$cluster,
-                                   palette = "jco", repel = show_labels, labelsize = if(show_labels) 3 else 0) +
-             ggtitle("ACP - Dimension 1 et 3") + theme_minimal(),
-           
            "var_circle" = fviz_pca_var(acp_data$acp, axes = c(1, 2), col.var = "contrib",
                                        gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE) +
-             ggtitle("Cercle des corrélations") + theme_minimal(),
-           
+             ggtitle("Cercle des corrélations - Dim 1 et 2") + theme_minimal(),
+           "var_circle13" = fviz_pca_var(acp_data$acp, axes = c(1, 3), col.var = "contrib",
+                                         gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE) +
+             ggtitle("Cercle des corrélations - Dim 1 et 3") + theme_minimal(),
            "eigenvalues" = fviz_eig(acp_data$acp, addlabels = TRUE, barfill = "#0073C2FF",
                                     barcolor = "#0073C2FF", linecolor = "black") +
              ggtitle("Contribution des dimensions") + theme_minimal()
     )
   })
+  
   
   # Statistiques clusters
   output$stats_clusters <- renderText({
@@ -1032,18 +1069,7 @@ server <- function(input, output, session) {
     output_text
   })
   
-  # ANOVA
-  output$anova_results <- renderPrint({
-    acp_data <- donnees_acp()
-    
-    if(is.null(acp_data)) {
-      cat("Données insuffisantes pour l'ANOVA")
-      return()
-    }
-    
-    modele <- aov(PTOT ~ cluster, data = acp_data$donnees)
-    summary(modele)
-  })
+  
 }
 
 # 🚀 Lancement
